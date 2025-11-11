@@ -1,0 +1,23 @@
+{
+  "name": "hermits-frontpage",
+  "version": "1.0.0",
+  "description": "Canada Hall Hermits - Alumni Community Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "canada-hall",
+    "hermits",
+    "uwi",
+    "alumni",
+    "static-site"
+  ],
+  "author": "Canada Hall Hermits",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
