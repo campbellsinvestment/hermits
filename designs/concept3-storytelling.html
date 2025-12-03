@@ -8,39 +8,18 @@
     <link rel="stylesheet" href="../css/concept3-storytelling.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="storytelling-theme">
     
-    <!-- Navigation -->
-    <nav class="story-nav">
-        <div class="container">
-            <div class="nav-container">
-                <div class="nav-brand">
-                    <span class="brand-icon">🎓</span>
-                    <span class="brand-name">HERMITS</span>
-                </div>
-                
-                <ul class="story-nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#our-story">Our Story</a></li>
-                    <li><a href="#relief">Relief</a></li>
-                    <li><a href="#moments">Moments</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#shop">Shop</a></li>
-                    <li><a href="#donate" class="donate-btn">Give Back</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
 
     <!-- Hero with Fullscreen Media -->
     <section class="story-hero">
         <div class="hero-media">
             <div class="hero-placeholder">
                 <div class="video-overlay"></div>
-                <div class="play-button">▶</div>
-                <p>[Fullscreen Background Video/Image]</p>
             </div>
         </div>
         
@@ -56,107 +35,13 @@
                         Six decades of brotherhood, excellence, and unforgettable moments 
                         that shaped the lives of thousands of young men at UWI St. Augustine.
                     </p>
-                    <div class="hero-story-actions">
-                        <a href="#our-story" class="btn-story btn-story-light">
-                            <span>Explore Our Journey</span>
-                            <span class="arrow-down">↓</span>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" id="scroll-indicator" onclick="scrollToNext()">
             <div class="scroll-icon">⌄</div>
             <span>Scroll to explore</span>
-        </div>
-    </section>
-
-    <!-- Hurricane Melissa Relief Section -->
-    <section id="relief" class="relief-story-section">
-        <div class="relief-hero-banner">
-            <div class="container">
-                <div class="relief-urgent-tag">🚨 URGENT RELIEF EFFORT</div>
-                <h2 class="relief-story-heading">Hurricane Melissa Relief – Jamaica 🇯🇲</h2>
-                <p class="relief-story-intro">
-                    In times of crisis, brotherhood means action. Our Jamaican community faces unprecedented challenges 
-                    from Hurricane Melissa. Stand with us as we provide emergency relief to affected families.
-                </p>
-                <div class="relief-hero-actions">
-                    <a href="#donate" class="btn-story btn-story-light">Donate Now</a>
-                    <a href="#volunteer" class="btn-story btn-story-outline">Volunteer</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="relief-story-content">
-                <div class="relief-impact-section">
-                    <h3 class="relief-section-heading">Our Response</h3>
-                    <div class="relief-impact-grid">
-                        <div class="impact-story-card">
-                            <div class="impact-icon-large">👨‍👩‍👧‍👦</div>
-                            <div class="impact-number-large">1,200+</div>
-                            <div class="impact-text">Families receiving assistance</div>
-                        </div>
-                        <div class="impact-story-card">
-                            <div class="impact-icon-large">💰</div>
-                            <div class="impact-number-large">$XX,XXX</div>
-                            <div class="impact-text">Raised for relief efforts</div>
-                        </div>
-                        <div class="impact-story-card">
-                            <div class="impact-icon-large">📦</div>
-                            <div class="impact-number-large">XXX</div>
-                            <div class="impact-text">Relief packages distributed</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relief-details-section">
-                    <div class="relief-needs-block">
-                        <h3 class="relief-section-heading">What's Needed</h3>
-                        <ul class="relief-story-needs-list">
-                            <li>
-                                <span class="need-icon">→</span>
-                                <span class="need-item">Emergency Food Supplies</span>
-                            </li>
-                            <li>
-                                <span class="need-icon">→</span>
-                                <span class="need-item">Clean Water & Purification Systems</span>
-                            </li>
-                            <li>
-                                <span class="need-icon">→</span>
-                                <span class="need-item">Medical Supplies & First Aid Kits</span>
-                            </li>
-                            <li>
-                                <span class="need-icon">→</span>
-                                <span class="need-item">Temporary Shelter Materials</span>
-                            </li>
-                            <li>
-                                <span class="need-icon">→</span>
-                                <span class="need-item">School Supplies for Children</span>
-                            </li>
-                            <li>
-                                <span class="need-icon">→</span>
-                                <span class="need-item">Home Rebuilding Funds</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="relief-commitment-block">
-                        <div class="commitment-badge">OUR COMMITMENT</div>
-                        <p class="commitment-text">
-                            <strong>100% Direct Impact</strong><br>
-                            Every dollar you donate goes directly to families in need. 
-                            We operate with complete transparency and zero administrative overhead 
-                            for relief efforts.
-                        </p>
-                        <div class="relief-cta-block">
-                            <a href="#donate" class="btn-story btn-story-dark">Make a Donation</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -169,7 +54,7 @@
                     In the halls of Canada, boys became brothers, students became scholars, 
                     and friendships became family. This is our story.
                 </blockquote>
-                <div class="quote-attribution">— The Hermits Fraternity</div>
+                <div class="quote-attribution">— Canada Hall Hermits</div>
             </div>
         </div>
     </section>
@@ -308,93 +193,13 @@
                         <p>Archives</p>
                     </div>
                 </div>
-                
-                <div class="photo-item">
-                    <div class="photo-placeholder">
-                        [Photo 6]
-                    </div>
-                    <div class="photo-overlay">
-                        <h3>Alumni Gathering</h3>
-                        <p>2021</p>
-                    </div>
-                </div>
             </div>
             
             <div class="text-center" style="margin-top: 3rem;">
-                <a href="#all-photos" class="btn-story btn-story-dark">
+                <a href="gallery-storytelling.html" class="btn-story btn-story-dark">
                     View Full Gallery
                     <span class="btn-arrow-right">→</span>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Interviews Section -->
-    <section class="video-section">
-        <div class="container">
-            <div class="section-intro">
-                <h2 class="section-title-story">Voices of the Brotherhood</h2>
-                <p class="section-description-story">
-                    Hear from Hermits across generations about what Canada Hall means to them
-                </p>
-            </div>
-            
-            <div class="video-grid">
-                <div class="video-card featured">
-                    <div class="video-thumbnail">
-                        <div class="video-placeholder">
-                            [Featured Video Thumbnail]
-                        </div>
-                        <div class="play-overlay">
-                            <div class="play-btn-large">▶</div>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <h3>The Hermits Story: 60 Years Documentary</h3>
-                        <p>A comprehensive look at our journey from 1963 to today</p>
-                        <div class="video-meta">
-                            <span>🕒 42:15</span>
-                            <span>•</span>
-                            <span>Featured Documentary</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <div class="video-placeholder">
-                            [Video 2]
-                        </div>
-                        <div class="play-overlay">
-                            <div class="play-btn-large">▶</div>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <h3>Alumni Interviews: Class of '85</h3>
-                        <p>Brothers reminisce about their time at Canada Hall</p>
-                        <div class="video-meta">
-                            <span>🕒 18:30</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <div class="video-placeholder">
-                            [Video 3]
-                        </div>
-                        <div class="play-overlay">
-                            <div class="play-btn-large">▶</div>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <h3>Current Students Speak</h3>
-                        <p>How the bursary program is changing lives today</p>
-                        <div class="video-meta">
-                            <span>🕒 12:45</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -425,7 +230,7 @@
                             <div class="impact-label">Graduation Rate</div>
                         </div>
                     </div>
-                    <a href="#donate" class="btn-story btn-story-gold">
+                    <a href="donate-storytelling.html" class="btn-story btn-story-gold">
                         Support a Student Today
                         <span class="btn-arrow-right">→</span>
                     </a>
@@ -448,67 +253,27 @@
         </div>
     </section>
 
-    <!-- Shop Preview -->
-    <section id="shop" class="shop-story">
+    <!-- Featured Event Preview -->
+    <section id="events" class="events-section">
         <div class="container">
             <div class="section-intro">
-                <h2 class="section-title-story">Wear the Brotherhood</h2>
-                <p class="section-description-story">
-                    Official Hermits merchandise — every purchase supports our mission
-                </p>
+                <h2 class="section-title-story">Upcoming Highlight</h2>
+                <p class="section-description-story">Join us for fellowship, networking, and giving back</p>
             </div>
             
-            <div class="shop-grid">
-                <div class="shop-item">
-                    <div class="shop-image-placeholder">
-                        [Product 1]
+            <div class="event-card-story">
+                <div class="event-card-content">
+                    <div class="event-date-badge-story">
+                        <span class="event-date-text">August 15, 2026</span>
                     </div>
-                    <div class="shop-item-info">
-                        <h4>Classic Hoodie</h4>
-                        <p class="shop-price">$58.99</p>
-                        <button class="btn-quick-add">Quick Add</button>
-                    </div>
-                </div>
-                
-                <div class="shop-item">
-                    <div class="shop-image-placeholder">
-                        [Product 2]
-                    </div>
-                    <div class="shop-item-info">
-                        <h4>Baseball Cap</h4>
-                        <p class="shop-price">$29.99</p>
-                        <button class="btn-quick-add">Quick Add</button>
+                    <h3>Hermits 1963 Annual Charity Golf Tournament</h3>
+                    <p>
+                        Join fellow Hermits for our flagship golf tournament supporting student bursaries—a full day of friendly competition, networking, and giving back to the Canada Hall community.
+                    </p>
+                    <div class="event-actions">
+                        <a href="events-storytelling.html" class="btn-story btn-story-outline">View All Events</a>
                     </div>
                 </div>
-                
-                <div class="shop-item">
-                    <div class="shop-image-placeholder">
-                        [Product 3]
-                    </div>
-                    <div class="shop-item-info">
-                        <h4>Color-Change Mug</h4>
-                        <p class="shop-price">$32.99</p>
-                        <button class="btn-quick-add">Quick Add</button>
-                    </div>
-                </div>
-                
-                <div class="shop-item">
-                    <div class="shop-image-placeholder">
-                        [Product 4]
-                    </div>
-                    <div class="shop-item-info">
-                        <h4>Golf Balls (6pc)</h4>
-                        <p class="shop-price">$36.99</p>
-                        <button class="btn-quick-add">Quick Add</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 2rem;">
-                <a href="#all-products" class="btn-story btn-story-dark">
-                    Shop All Products
-                    <span class="btn-arrow-right">→</span>
-                </a>
             </div>
         </div>
     </section>
@@ -523,14 +288,14 @@
                     of our mission, there's a place for you in the Hermits family.
                 </p>
                 <div class="cta-final-buttons">
-                    <a href="#donate" class="btn-story btn-story-light-large">
+                    <a href="donate-storytelling.html" class="btn-story btn-story-light-large">
                         Make a Donation
                     </a>
-                    <a href="#events" class="btn-story btn-story-outline-large">
+                    <a href="events-storytelling.html" class="btn-story btn-story-outline-large">
                         Attend an Event
                     </a>
-                    <a href="#contact" class="btn-story btn-story-outline-large">
-                        Get in Touch
+                    <a href="about-storytelling.html" class="btn-story btn-story-outline-large">
+                        Learn More
                     </a>
                 </div>
             </div>
@@ -538,65 +303,28 @@
     </section>
 
     <!-- Footer -->
-    <footer class="story-footer">
-        <div class="container">
-            <div class="footer-story-grid">
-                <div class="footer-story-col">
-                    <div class="footer-story-brand">
-                        <h3>Canada Hall Hermits</h3>
-                        <p>
-                            Six decades of brotherhood, excellence, and giving back. 
-                            Join us in supporting the next generation.
-                        </p>
-                    </div>
-                    <div class="footer-social">
-                        <a href="#">📘 Facebook</a>
-                        <a href="#">📷 Instagram</a>
-                        <a href="#">💼 LinkedIn</a>
-                    </div>
-                </div>
-                
-                <div class="footer-story-col">
-                    <h4>Explore</h4>
-                    <ul>
-                        <li><a href="#our-story">Our Story</a></li>
-                        <li><a href="#moments">Photo Gallery</a></li>
-                        <li><a href="#videos">Video Interviews</a></li>
-                        <li><a href="#timeline">Timeline</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-story-col">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#newsletter">Newsletter</a></li>
-                        <li><a href="#alumni">Alumni Directory</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-story-col">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#donate">Donate</a></li>
-                        <li><a href="#bursary">Bursary Program</a></li>
-                        <li><a href="#shop">Shop Merchandise</a></li>
-                        <li><a href="#sponsor">Sponsorship</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-story-bottom">
-                <p>&copy; 2025 Canada Hall Hermits | Celebrating 60+ Years of Fraternity</p>
-                <div class="footer-story-legal">
-                    <a href="#">Privacy</a>
-                    <span>•</span>
-                    <a href="#">Terms</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
+    <script src="../js/components.js"></script>
+    <script>
+        // Smooth scroll to next section
+        function scrollToNext() {
+            const quoteSection = document.querySelector('.quote-section');
+            if (quoteSection) {
+                quoteSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+        
+        // Also make it work on click anywhere on the indicator
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollIndicator = document.getElementById('scroll-indicator');
+            if (scrollIndicator) {
+                scrollIndicator.addEventListener('click', scrollToNext);
+            }
+        });
+    </script>
 </body>
 </html>

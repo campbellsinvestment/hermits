@@ -7,13 +7,89 @@ async function loadComponent(elementId, componentPath) {
         
         // Set active navigation item after header is loaded
         if (elementId === 'header-placeholder') {
+            updateNavLinksForTheme();
             setActiveNavItem();
+        }
+        
+        // Update footer links for storytelling theme
+        if (elementId === 'footer-placeholder') {
+            updateFooterLinksForTheme();
+            // Also update footer-bottom links
+            const footerBottomLinks = document.querySelectorAll('.footer-bottom a');
+            footerBottomLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === 'privacy-terms.html' && document.body.classList.contains('storytelling-theme')) {
+                    link.setAttribute('href', 'privacy-terms-storytelling.html');
+                }
+            });
         }
         
         return Promise.resolve();
     } catch (error) {
         console.error(`Error loading component ${componentPath}:`, error);
         return Promise.reject(error);
+    }
+}
+
+// Update navigation links based on theme
+function updateNavLinksForTheme() {
+    const isStorytelling = document.body.classList.contains('storytelling-theme');
+    
+    if (isStorytelling) {
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        const logoLink = document.querySelector('.logo-section a');
+        
+        // Update logo link
+        if (logoLink) {
+            logoLink.setAttribute('href', 'concept3-storytelling.html');
+        }
+        
+        // Update navigation links
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            const id = link.getAttribute('id');
+            
+            if (id === 'nav-home') {
+                link.setAttribute('href', 'concept3-storytelling.html');
+            } else if (id === 'nav-about') {
+                link.setAttribute('href', 'about-storytelling.html');
+            } else if (id === 'nav-scholarships') {
+                link.setAttribute('href', 'scholarships-storytelling.html');
+            } else if (id === 'nav-events') {
+                link.setAttribute('href', 'events-storytelling.html');
+            } else if (id === 'nav-gallery') {
+                link.setAttribute('href', 'gallery-storytelling.html');
+            } else if (link.classList.contains('nav-cta')) {
+                link.setAttribute('href', 'donate-storytelling.html');
+            }
+        });
+    }
+}
+
+// Update footer links based on theme
+function updateFooterLinksForTheme() {
+    const isStorytelling = document.body.classList.contains('storytelling-theme');
+    
+    if (isStorytelling) {
+        const footerLinks = document.querySelectorAll('.footer a');
+        
+        footerLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            
+            if (href === 'about.html') {
+                link.setAttribute('href', 'about-storytelling.html');
+            } else if (href === 'scholarships.html') {
+                link.setAttribute('href', 'scholarships-storytelling.html');
+            } else if (href === 'events.html') {
+                link.setAttribute('href', 'events-storytelling.html');
+            } else if (href === 'gallery.html') {
+                link.setAttribute('href', 'gallery-storytelling.html');
+            } else if (href === 'donate.html') {
+                link.setAttribute('href', 'donate-storytelling.html');
+            } else if (href === 'privacy-terms.html') {
+                link.setAttribute('href', 'privacy-terms-storytelling.html');
+            }
+        });
     }
 }
 
@@ -26,12 +102,19 @@ function setActiveNavItem() {
         link.classList.remove('active');
         const href = link.getAttribute('href');
         
+        const isStorytelling = document.body.classList.contains('storytelling-theme');
+        
         if (href === currentPage || 
-            (currentPage === 'concept1-heritage.html' && link.id === 'nav-home') ||
-            (currentPage === 'about.html' && link.id === 'nav-about') ||
-            (currentPage === 'scholarships.html' && link.id === 'nav-scholarships') ||
-            (currentPage === 'events.html' && link.id === 'nav-events') ||
-            (currentPage === 'gallery.html' && link.id === 'nav-gallery')) {
+            (currentPage === 'concept1-heritage.html' && link.id === 'nav-home' && !isStorytelling) ||
+            (currentPage === 'concept3-storytelling.html' && link.id === 'nav-home' && isStorytelling) ||
+            (currentPage === 'about.html' && link.id === 'nav-about' && !isStorytelling) ||
+            (currentPage === 'about-storytelling.html' && link.id === 'nav-about' && isStorytelling) ||
+            (currentPage === 'scholarships.html' && link.id === 'nav-scholarships' && !isStorytelling) ||
+            (currentPage === 'scholarships-storytelling.html' && link.id === 'nav-scholarships' && isStorytelling) ||
+            (currentPage === 'events.html' && link.id === 'nav-events' && !isStorytelling) ||
+            (currentPage === 'events-storytelling.html' && link.id === 'nav-events' && isStorytelling) ||
+            (currentPage === 'gallery.html' && link.id === 'nav-gallery' && !isStorytelling) ||
+            (currentPage === 'gallery-storytelling.html' && link.id === 'nav-gallery' && isStorytelling)) {
             link.classList.add('active');
         }
     });

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Canada Hall Hermits</title>
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/concept3-storytelling.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="storytelling-theme">
+    
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Hero -->
+    <section class="story-hero" style="min-height: 400px; height: auto;">
+        <div class="hero-media">
+            <div class="hero-placeholder"></div>
+        </div>
+        <div class="hero-story-content">
+            <div class="container">
+                <div class="hero-story-text">
+                    <div class="hero-year">Make an Impact</div>
+                    <h1 class="hero-story-title" style="font-size: clamp(2.5rem, 5vw, 4rem);">Support the Next Generation</h1>
+                    <p class="hero-story-description" style="font-size: 1.125rem;">
+                        Your donation helps provide scholarships, bursaries, and vital support for Canada Hall students at UWI St. Augustine.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Content -->
+    <section class="section" style="padding: 6rem 0; background: white;">
+        <div class="container">
+            <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr); gap: 4rem; align-items: flex-start;">
+                
+                <!-- Left: Online Payment Options -->
+                <div>
+                    <h2 class="section-title-story" style="margin-bottom: 1.5rem;">Give Online</h2>
+                    <p style="font-family: 'Crimson Text', serif; font-size: 1.0625rem; color: #4a4a4a; line-height: 1.8; margin-bottom: 2.5rem;">
+                        Choose a secure payment option to complete your contribution by credit card.
+                        You will be redirected to our trusted payment partners to finish checkout.
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2.5rem;">
+                        <!-- PayPal -->
+                        <a href="https://www.paypal.com/donate" target="_blank" rel="noopener noreferrer"
+                           class="btn-story btn-story-dark"
+                           style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1.125rem 2rem; background: #003087; color: white; border-color: #003087;">
+                            <span>Donate with PayPal</span>
+                            <span class="btn-arrow-right">→</span>
+                        </a>
+
+                        <!-- Stripe -->
+                        <a href="https://donate.stripe.com/test_1234567890" target="_blank" rel="noopener noreferrer"
+                           class="btn-story btn-story-dark"
+                           style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1.125rem 2rem; background: #635bff; color: white; border-color: #635bff;">
+                            <span>Donate with Card (Stripe)</span>
+                            <span class="btn-arrow-right">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Pledge Form -->
+                <div>
+                    <h2 class="section-title-story" style="margin-bottom: 1.5rem;">Make a Pledge</h2>
+                    <p style="font-family: 'Crimson Text', serif; font-size: 1.0625rem; color: #4a4a4a; line-height: 1.8; margin-bottom: 2rem;">
+                        Share your pledge details and we'll follow up with next steps to complete your donation.
+                    </p>
+
+                    <form id="pledge-form" class="impact-card-visual" style="padding: 2.5rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                            <div>
+                                <label for="first-name" style="display: block; font-size: 0.9375rem; font-weight: 600; color: var(--burgundy); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;">First Name</label>
+                                <input id="first-name" name="first-name" type="text" required
+                                       style="width: 100%; padding: 0.875rem 1rem; border-radius: 10px; border: 2px solid rgba(0, 94, 184, 0.2); font-size: 1rem; font-family: 'Crimson Text', serif; transition: border-color 0.3s ease;"
+                                       onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(0, 94, 184, 0.2)'">
+                            </div>
+                            <div>
+                                <label for="last-name" style="display: block; font-size: 0.9375rem; font-weight: 600; color: var(--burgundy); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;">Last Name</label>
+                                <input id="last-name" name="last-name" type="text" required
+                                       style="width: 100%; padding: 0.875rem 1rem; border-radius: 10px; border: 2px solid rgba(0, 94, 184, 0.2); font-size: 1rem; font-family: 'Crimson Text', serif; transition: border-color 0.3s ease;"
+                                       onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(0, 94, 184, 0.2)'">
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.25rem;">
+                            <label for="email" style="display: block; font-size: 0.9375rem; font-weight: 600; color: var(--burgundy); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;">Email</label>
+                            <input id="email" name="email" type="email" required
+                                   style="width: 100%; padding: 0.875rem 1rem; border-radius: 10px; border: 2px solid rgba(0, 94, 184, 0.2); font-size: 1rem; font-family: 'Crimson Text', serif; transition: border-color 0.3s ease;"
+                                   onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(0, 94, 184, 0.2)'">
+                        </div>
+
+                        <div style="margin-top: 1.25rem; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1rem;">
+                            <div>
+                                <label for="amount" style="display: block; font-size: 0.9375rem; font-weight: 600; color: var(--burgundy); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;">Pledge Amount</label>
+                                <input id="amount" name="amount" type="number" min="1" step="0.01" required
+                                       style="width: 100%; padding: 0.875rem 1rem; border-radius: 10px; border: 2px solid rgba(0, 94, 184, 0.2); font-size: 1rem; font-family: 'Crimson Text', serif; transition: border-color 0.3s ease;"
+                                       onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(0, 94, 184, 0.2)'">
+                            </div>
+                            <div>
+                                <label for="currency" style="display: block; font-size: 0.9375rem; font-weight: 600; color: var(--burgundy); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;">Currency</label>
+                                <select id="currency" name="currency" required
+                                        style="width: 100%; padding: 0.875rem 1rem; border-radius: 10px; border: 2px solid rgba(0, 94, 184, 0.2); font-size: 1rem; font-family: 'Crimson Text', serif; background-color: #fff; transition: border-color 0.3s ease;"
+                                        onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(0, 94, 184, 0.2)'">
+                                    <option value="USD">USD</option>
+                                    <option value="CAD">CAD</option>
+                                    <option value="TTD">TTD</option>
+                                    <option value="EUR">EUR</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1.25rem;">
+                            <label for="frequency" style="display: block; font-size: 0.9375rem; font-weight: 600; color: var(--burgundy); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;">Frequency</label>
+                            <select id="frequency" name="frequency" required
+                                    style="width: 100%; padding: 0.875rem 1rem; border-radius: 10px; border: 2px solid rgba(0, 94, 184, 0.2); font-size: 1rem; font-family: 'Crimson Text', serif; background-color: #fff; transition: border-color 0.3s ease;"
+                                    onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(0, 94, 184, 0.2)'">
+                                <option value="one-time">One-time</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="annually">Annually</option>
+                            </select>
+                        </div>
+
+                        <div style="margin-top: 1.25rem;">
+                            <label for="message" style="display: block; font-size: 0.9375rem; font-weight: 600; color: var(--burgundy); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;">Message or Designation (optional)</label>
+                            <textarea id="message" name="message" rows="4"
+                                      style="width: 100%; padding: 0.875rem 1rem; border-radius: 10px; border: 2px solid rgba(0, 94, 184, 0.2); font-size: 1rem; font-family: 'Crimson Text', serif; resize: vertical; transition: border-color 0.3s ease;"
+                                      onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(0, 94, 184, 0.2)'"></textarea>
+                        </div>
+
+                        <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+                            <button type="submit" class="btn-story btn-story-gold" style="align-self: flex-start;">
+                                Submit Pledge
+                                <span class="btn-arrow-right">→</span>
+                            </button>
+                            <p style="font-family: 'Crimson Text', serif; font-size: 0.875rem; color: #666; margin: 0;">
+                                This form records your pledge only. A member of our team will follow up to confirm details and provide official
+                                payment instructions or receipts as needed.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script>
+        // Handle pledge form submission
+        document.getElementById('pledge-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            
+            const formData = new FormData(this);
+            const firstName = formData.get('first-name');
+            const lastName = formData.get('last-name');
+            const email = formData.get('email');
+            const amount = formData.get('amount');
+            const currency = formData.get('currency');
+            const frequency = formData.get('frequency');
+            const message = formData.get('message');
+            
+            const emailBody = 
+                'Donation Pledge Submission\n\n' +
+                'Name: ' + firstName + ' ' + lastName + '\n' +
+                'Email: ' + email + '\n' +
+                'Pledge Amount: ' + amount + ' ' + currency + '\n' +
+                'Frequency: ' + frequency + '\n' +
+                (message ? 'Message/Designation: ' + message + '\n' : '') +
+                '\n---\nThis pledge was submitted through the Canada Hall Hermits website.';
+            
+            const subject = encodeURIComponent('Donation Pledge - Canada Hall Hermits');
+            const body = encodeURIComponent(emailBody);
+            const mailtoLink = 'mailto:hermits1963@gmail.com?subject=' + subject + '&body=' + body;
+            
+            window.location.href = mailtoLink;
+            
+            setTimeout(function() {
+                alert('Thank you for your pledge! Your email client should open with your pledge details pre-filled. Please review and send the email to hermits1963@gmail.com to complete your submission.\n\nIf your email client does not open, please email us directly at hermits1963@gmail.com with your pledge information.');
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+                document.getElementById('pledge-form').reset();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
+
