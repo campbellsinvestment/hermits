@@ -14,36 +14,18 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header-main">
-            <div class="container">
-                <nav class="navigation">
-                    <div class="logo-section">
-                        <div class="site-title">
-                            <h1 style="font-family: 'Trajan Pro', 'Trajan', 'Cinzel', serif; font-size: 1.75rem; font-weight: 700; color: var(--burgundy); letter-spacing: 3px; line-height: 1.2;">CANADA HALL HERMITS</h1>
-                        </div>
-                    </div>
-                    
-                    <ul class="nav-menu">
-                        <li><a href="concept1-heritage.html">HOME</a></li>
-                        <li><a href="about.html">ABOUT</a></li>
-                        <li><a href="scholarships.html">SCHOLARSHIPS</a></li>
-                        <li><a href="events.html" class="active">EVENTS</a></li>
-                        <li><a href="#gallery">GALLERY</a></li>
-                        <li><a href="#donate" class="nav-cta">DONATE</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="page-hero" style="background: linear-gradient(135deg, var(--burgundy) 0%, var(--navy) 100%); padding: 6rem 0 4rem; text-align: center; color: white; position: relative; overflow: hidden;">
         <div style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: rgba(242, 169, 0, 0.1); border-radius: 50%;"></div>
         <div style="position: absolute; bottom: -150px; left: -150px; width: 500px; height: 500px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;"></div>
         <div class="container" style="position: relative; z-index: 1;">
-            <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; color: var(--gold);">Events</h1>
-            <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; opacity: 0.95;">Join us for fellowship, networking, and giving back to our community</p>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; color: white;">Events</h1>
+            <p class="hero-subtitle-text" style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; opacity: 0.95; color: var(--gold); line-height: 1.6;">
+                <span class="hero-line-1" style="display: block;">Join us for fellowship, networking,</span>
+                <span class="hero-line-2" style="display: block;">and giving back to our community</span>
+            </p>
         </div>
     </section>
 
@@ -60,16 +42,8 @@
                     </div>
 
                     <!-- Golf Tournament -->
-                    <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 4px solid var(--gold);">
-                        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 0;">
-                            <!-- Date Badge -->
-                            <div style="background: linear-gradient(135deg, var(--burgundy), var(--navy)); color: white; padding: 3rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative;">
-                                <div style="position: absolute; top: 20px; right: 20px; width: 60px; height: 60px; background: rgba(242, 169, 0, 0.2); border-radius: 50%;"></div>
-                                <div style="font-size: 4rem; font-weight: 900; line-height: 1; margin-bottom: 0.5rem; color: var(--gold);">15</div>
-                                <div style="font-size: 1.25rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 0.25rem;">AUGUST</div>
-                                <div style="font-size: 1.5rem; font-weight: 600; opacity: 0.9;">2026</div>
-                            </div>
-                            
+                    <div class="golf-tournament-card" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 4px solid var(--gold);">
+                        <div class="golf-tournament-grid" style="display: block;">
                             <!-- Event Details -->
                             <div style="padding: 3rem;">
                                 <div style="display: inline-block; background: rgba(0, 94, 184, 0.1); color: var(--burgundy); padding: 0.5rem 1.25rem; border-radius: 20px; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 1.5rem;">ANNUAL FUNDRAISER</div>
@@ -91,8 +65,8 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <div style="font-size: 0.875rem; color: #999; margin-bottom: 0.25rem;">Time</div>
-                                            <div style="font-weight: 600; color: var(--burgundy);">8:00 AM - 6:00 PM</div>
+                                            <div style="font-size: 0.875rem; color: #999; margin-bottom: 0.25rem;">Date & Time</div>
+                                            <div style="font-weight: 600; color: var(--burgundy);">August 15, 2026<br>8:00 AM - 6:00 PM</div>
                                         </div>
                                     </div>
                                     
@@ -129,54 +103,9 @@
                                             <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
                                     </a>
-                                    <a href="#" class="btn" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: white; border: 2px solid var(--burgundy); color: var(--burgundy);">
-                                        Learn More
-                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Event Highlights -->
-                <div style="background: linear-gradient(135deg, #fafaf8, white); padding: 3.5rem; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05);">
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--burgundy); margin-bottom: 2rem; text-align: center;">What to Expect</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem;">
-                        <div style="text-align: center;">
-                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--burgundy), var(--navy)); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 2rem; font-weight: 900;">⛳</div>
-                            <h4 style="font-size: 1.25rem; color: var(--burgundy); margin-bottom: 0.75rem; font-weight: 700;">Championship Golf</h4>
-                            <p style="color: #666; line-height: 1.7;">Play on a premier golf course with fellow alumni</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--burgundy), var(--navy)); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 2rem; font-weight: 900;">🤝</div>
-                            <h4 style="font-size: 1.25rem; color: var(--burgundy); margin-bottom: 0.75rem; font-weight: 700;">Networking</h4>
-                            <p style="color: #666; line-height: 1.7;">Connect with Hermits from across the years</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--burgundy), var(--navy)); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 2rem; font-weight: 900;">🎓</div>
-                            <h4 style="font-size: 1.25rem; color: var(--burgundy); margin-bottom: 0.75rem; font-weight: 700;">Give Back</h4>
-                            <p style="color: #666; line-height: 1.7;">Support scholarships for current students</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--burgundy), var(--navy)); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 2rem; font-weight: 900;">🍽️</div>
-                            <h4 style="font-size: 1.25rem; color: var(--burgundy); margin-bottom: 0.75rem; font-weight: 700;">Awards Dinner</h4>
-                            <p style="color: #666; line-height: 1.7;">Evening celebration with prizes and recognition</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Past Events -->
-                <div style="margin-top: 5rem;">
-                    <div style="text-align: center; margin-bottom: 3rem;">
-                        <h2 class="section-title" style="display: inline-block; margin-bottom: 1rem;">Past Events</h2>
-                        <p style="font-size: 1.125rem; color: #666;">Celebrating our tradition of fellowship and service</p>
-                    </div>
-                    <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); text-align: center;">
-                        <p style="font-size: 1.125rem; color: #666; line-height: 1.8;">
-                            Our annual golf tournament has been a cornerstone event for the Hermits 1963 alumni community, 
-                            bringing together brothers from different generations while raising critical funds for student scholarships. 
-                            Check back here for photos and highlights from past events.
-                        </p>
                     </div>
                 </div>
 
@@ -201,45 +130,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="scholarships.html">Scholarships</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="#gallery">Photo Gallery</a></li>
-                        <li><a href="#donate">Donate</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Get Involved</h4>
-                    <ul>
-                        <li><a href="events.html">Upcoming Events</a></li>
-                        <li><a href="#donate">Support Students</a></li>
-                        <li><a href="#volunteer">Volunteer</a></li>
-                        <li><a href="#membership">Membership</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-content">
-                <p>&copy; 2025 Canada Hall Hermits | United in Brotherhood Since 1963</p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/components.js"></script>
 </body>
 </html>

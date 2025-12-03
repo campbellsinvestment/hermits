@@ -1,4 +1,5 @@
 /* Heritage Classic Theme - Concept 1 */
+/* Updated: Mobile event card fixes - v2 */
 .heritage-theme {
   font-family: 'Crimson Text', var(--font-serif);
   background: #fafaf8;
@@ -48,7 +49,7 @@
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 9999;
   transition: all 0.3s ease;
 }
 
@@ -88,6 +89,12 @@
   color: var(--burgundy);
   letter-spacing: 1px;
   line-height: 1.2;
+}
+
+.logo-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .site-title .subtitle {
@@ -156,6 +163,48 @@
   color: var(--black);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(242, 169, 0, 0.5);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(242, 169, 0, 0.08), white);
+  border: 1px solid rgba(0, 94, 184, 0.2);
+  border-top: 3px solid var(--burgundy);
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: relative;
+  box-shadow: 0 -3px 10px rgba(0, 94, 184, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  background: linear-gradient(to bottom, rgba(242, 169, 0, 0.12), #fafafa);
+  border-top-color: var(--gold);
+  box-shadow: 0 -3px 15px rgba(242, 169, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.mobile-menu-toggle svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--burgundy);
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] {
+  border-top-color: var(--gold);
+  background: #fafafa;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+  stroke: var(--burgundy);
 }
 
 /* Hero Section */
@@ -475,6 +524,105 @@
   text-decoration: underline;
 }
 
+/* Featured Event Card */
+.featured-event-card {
+  background: white;
+  padding: 2.5rem;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.featured-event-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 769px) {
+  .featured-event-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .event-date-badge {
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+  
+  .event-details {
+    flex: 1;
+  }
+  
+  /* Events page hero subtitle - one line on desktop */
+  .hero-subtitle-text .hero-line-1,
+  .hero-subtitle-text .hero-line-2 {
+    display: inline !important;
+  }
+  
+  .hero-subtitle-text .hero-line-1::after {
+    content: ' ';
+  }
+}
+
+.event-date-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--burgundy);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.event-date-text {
+  white-space: nowrap;
+}
+
+.event-details {
+  width: 100%;
+  max-width: 100%;
+}
+
+.event-details h3 {
+  color: var(--burgundy);
+  margin-bottom: 0.75rem;
+  font-size: 1.75rem;
+  font-family: 'Playfair Display', var(--font-display);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+}
+
+.event-details p {
+  color: var(--gray-dark);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-size: 1.0625rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.event-actions .btn {
+  padding-inline: 1.75rem;
+}
+
 /* About Section */
 .about {
   background: var(--white);
@@ -723,6 +871,11 @@
 
 /* Responsive Design */
 @media (max-width: 992px) {
+  .logo-text {
+    font-size: 1.625rem !important;
+    letter-spacing: 0.45px !important;
+  }
+  
   .navigation {
     flex-direction: column;
   }
@@ -742,13 +895,128 @@
   .hero-title {
     font-size: 3rem;
   }
+
+  .header-main {
+    padding: 1rem 0.5rem;
+  }
+
+  .nav-menu {
+    gap: 1.25rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .donation-cta .cta-content h2 {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 768px) {
+  
+  .logo-text {
+    font-size: 1.5rem !important;
+    letter-spacing: 0.4px !important;
+    text-align: center !important;
+  }
+  
+  .navigation {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative;
+    z-index: 10000;
+    overflow: visible;
+    gap: 1rem !important;
+    padding-top: 1.5rem !important;
+  }
+  
+  .logo-section {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding-top: 0.5rem !important;
+  }
+  
+  .site-title {
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  .site-title a {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+    position: relative;
+    z-index: 10001;
+    margin: 0.75rem auto 0;
+    order: 2;
+  }
+  
+  .logo-section {
+    order: 1;
+  }
+  
   .nav-menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+    order: 3;
+  }
+  
+  .header-main .container {
+    overflow: visible;
+  }
+  
+  .nav-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    z-index: 10001;
+    overflow: hidden;
+    margin-top: 0;
+  }
+  
+  .nav-menu.active {
+    max-height: 600px;
+    padding: 1.5rem 2rem 2rem;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  
+  .nav-menu a {
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .nav-menu .nav-cta {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    padding: 0.875rem 1.5rem;
   }
   
   .hero {
@@ -772,9 +1040,432 @@
   .cta-content h2 {
     font-size: 2rem;
   }
+
+  .header-main {
+    position: relative;
+    padding: 0.75rem 0.5rem;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.06);
+    z-index: 9999;
+  }
+  
+  .header {
+    position: relative;
+    z-index: 9999;
+  }
+  
+  .eligibility-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  
+  .eligibility-grid > div {
+    padding: 2rem !important;
+  }
+  
+  .eligibility-grid h3 {
+    font-size: 1.5rem !important;
+  }
+  
+  .purpose-vision-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  
+  .purpose-vision-grid > div {
+    margin-bottom: 0 !important;
+  }
+  
+  .purpose-vision-grid > div > div:first-child {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .purpose-vision-grid > div > div:last-child {
+    padding: 2rem !important;
+  }
+  
+  .purpose-vision-grid .section-title {
+    font-size: 2rem !important;
+  }
+  
+  .purpose-vision-grid p {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+  }
+  
+  .featured-event-card {
+    padding: 1.5rem 1rem !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    border-width: 1px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .header-main .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .featured-event-content {
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .event-date-badge {
+    align-self: flex-start !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .event-details {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .event-details h3 {
+    font-size: 1.375rem !important;
+    margin-bottom: 0.875rem !important;
+    line-height: 1.35 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .event-details p {
+    font-size: 0.9375rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 1.25rem !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .event-actions {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .event-actions .btn {
+    width: 100% !important;
+    padding: 0.875rem 1.5rem !important;
+    font-size: 0.9375rem !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Events page - Golf Tournament Card */
+  .golf-tournament-grid {
+    display: block !important;
+  }
+  
+  .golf-tournament-card {
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  
+  .golf-tournament-card > div > div:first-child {
+    padding: 2rem 1.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .golf-tournament-card h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .golf-tournament-card p {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .golf-tournament-card > div > div:last-child > div:nth-child(3) {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .golf-tournament-card > div > div:last-child > div:last-child {
+    flex-direction: column !important;
+  }
+  
+  .golf-tournament-card > div > div:last-child > div:last-child > a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  .events.section .section-title {
+    font-size: 2rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .events.section .section-subtitle {
+    font-size: 0.9375rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .events.section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  
+  .events.section .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .featured-event-card {
+    padding: 1.25rem 0.75rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  
+  .featured-event-content {
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    gap: 1rem !important;
+  }
+  
+  .event-date-badge {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    word-wrap: break-word !important;
+  }
+  
+  .event-date-text {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .event-details {
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .event-details * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .event-actions {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+  
+  .event-actions .btn {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero {
+    min-height: 420px;
+    padding-top: 3.5rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  /* Compact events card layout on mobile */
+  .events .event-card > div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .events .event-card > div > div:first-child {
+    margin-bottom: 1rem;
+  }
+
+  /* Board grid spacing on About */
+  .about .section-title {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Donate page two-column layout stacks on mobile */
+  .heritage-theme .section .container .donate-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-grid {
+    text-align: center;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+  
+  .footer-section h4 {
+    text-align: center;
+  }
+  
+  .footer-section ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-section li {
+    text-align: center;
+  }
   
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    align-items: center;
+  }
+  
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 1.375rem !important;
+    letter-spacing: 0.35px !important;
+  }
+  
+  .navigation {
+    padding-top: 2rem !important;
+  }
+  
+  .logo-section {
+    padding-top: 1rem !important;
+  }
+  
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+  }
+
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .donation-cta .cta-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .donation-cta .btn-large {
+    width: 100%;
+  }
+  
+  .featured-event-card {
+    padding: 1rem 0.625rem !important;
+    margin: 0 !important;
+    border-radius: 6px !important;
+  }
+  
+  .featured-event-content {
+    gap: 0.875rem !important;
+  }
+  
+  .event-date-badge {
+    padding: 0.4375rem 0.75rem !important;
+    font-size: 0.75rem !important;
+    max-width: calc(100% - 1.25rem) !important;
+  }
+  
+  .event-details h3 {
+    font-size: 1.125rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.625rem !important;
+    padding: 0 !important;
+  }
+  
+  .event-details p {
+    font-size: 0.8125rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0.875rem !important;
+    padding: 0 !important;
+  }
+  
+  .event-actions .btn {
+    width: 100% !important;
+    padding: 0.6875rem 1rem !important;
+    font-size: 0.8125rem !important;
+    max-width: 100% !important;
+  }
+  
+  .events.section .container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  .events.section .section-title,
+  .events.section .section-subtitle {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  .events.section .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .featured-event-card * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .events.section .section-title {
+    font-size: 1.75rem !important;
+  }
+  
+  .events.section .section-subtitle {
+    font-size: 0.875rem !important;
+  }
+  
+  /* Events page - Golf Tournament Card - Very Small Screens */
+  .golf-tournament-card > div > div:first-child {
+    padding: 1.5rem 1rem !important;
+  }
+  
+  .golf-tournament-card h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  .golf-tournament-card p {
+    font-size: 0.875rem !important;
   }
 }

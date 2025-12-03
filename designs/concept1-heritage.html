@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canada Hall Hermits - Heritage Classic Design</title>
     <link rel="stylesheet" href="../css/shared.css">
-    <link rel="stylesheet" href="../css/concept1-heritage.css">
+    <link rel="stylesheet" href="../css/concept1-heritage.css?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -13,28 +13,7 @@
 <body class="heritage-theme">
     
     <!-- Header -->
-    <header class="header">
-        <div class="header-main">
-            <div class="container">
-                <nav class="navigation">
-                    <div class="logo-section">
-                        <div class="site-title">
-                            <h1 style="font-family: 'Trajan Pro', 'Trajan', 'Cinzel', serif; font-size: 1.75rem; font-weight: 700; color: var(--burgundy); letter-spacing: 3px; line-height: 1.2;">CANADA HALL HERMITS</h1>
-                        </div>
-                    </div>
-                    
-                    <ul class="nav-menu">
-                        <li><a href="#home" class="active">HOME</a></li>
-                        <li><a href="about.html">ABOUT</a></li>
-                        <li><a href="scholarships.html">SCHOLARSHIPS</a></li>
-                        <li><a href="events.html">EVENTS</a></li>
-                        <li><a href="#gallery">GALLERY</a></li>
-                        <li><a href="#donate" class="nav-cta">DONATE</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -42,38 +21,98 @@
         <div class="hero-content">
             <div class="container">
                 <div class="hero-text">
-                    <h2 class="hero-title">Canada Hall Hermits 1963</h2>
-                    <p class="hero-subtitle">Onward. Upward. Together.</p>
+                    <h2 class="hero-title">Canada Hall Hermits</h2>
+                    <p class="hero-subtitle">Onward. Upward. Together. Since 1963.</p>
                     <div class="hero-divider"></div>
                     <div class="hero-actions">
-                        <a href="#about" class="btn btn-primary">Our Story</a>
-                        <a href="#donate" class="btn btn-secondary">Support Students</a>
+                        <a href="#about" class="btn btn-primary">About Hermits1963 Inc.</a>
+                        <a href="donate.html" class="btn btn-secondary">Make a Donation</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Events Section -->
+    <!-- About / Mission Overview -->
+    <section id="about" class="mission section">
+        <div class="container">
+            <div class="mission-content">
+                <h2 class="section-title">Our Purpose</h2>
+                <div class="decorative-line"></div>
+                <p class="mission-quote">
+                    “To advance education by providing scholarships, bursaries, and other support to
+                    Canada Hall residents at UWI St. Augustine.”
+                </p>
+                <p style="max-width: 720px; margin: 1.75rem auto 0; font-size: 1.05rem;">
+                    Hermits1963 Inc. brings together generations of Canada Hall alumni to invest in current
+                    students through financial aid, networking, and community-building.
+                </p>
+                <div style="margin-top: 2.5rem;">
+                    <a href="about.html" class="btn btn-primary">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Areas / Features -->
+    <section class="features section">
+        <div class="container">
+            <h2 class="section-title">How We Make an Impact</h2>
+            <p class="section-subtitle">Scholarships, events, and alumni engagement all working together</p>
+
+            <div class="grid grid-3" style="margin-top: 2rem;">
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Scholarships & Bursaries</h3>
+                    <p>
+                        Financial support for deserving Canada Hall residents so they can complete their studies
+                        and focus on academic excellence.
+                    </p>
+                    <a href="scholarships.html" class="feature-link">Explore the program →</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Flagship Golf Tournament</h3>
+                    <p>
+                        Our annual charity golf tournament is a cornerstone fundraising event that fuels the
+                        Student Bursary Program each year.
+                    </p>
+                    <a href="events.html" class="feature-link">View event details →</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Alumni Community</h3>
+                    <p>
+                        A global network of Hermits staying connected, mentoring current students, and giving back
+                        to the hall that shaped them.
+                    </p>
+                    <a href="gallery.html" class="feature-link">See our moments →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Event Preview -->
     <section id="events" class="events section">
         <div class="container">
-            <h2 class="section-title">Upcoming Events</h2>
-            <p class="section-subtitle">Join us for fellowship and celebration</p>
+            <h2 class="section-title">Upcoming Highlight</h2>
+            <p class="section-subtitle">Join us for fellowship, networking, and giving back</p>
             
-            <div class="event-card" style="background: white; padding: 2.5rem; border: 2px solid var(--gold); border-radius: 8px; max-width: 800px; margin: 0 auto;">
-                <div style="display: flex; gap: 2rem; align-items: center;">
-                    <div style="flex-shrink: 0; width: 120px; height: 120px; background: var(--burgundy); color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 8px;">
-                        <div style="font-size: 2.5rem; font-weight: 900; line-height: 1;">15</div>
-                        <div style="font-size: 1rem; margin-top: 0.5rem;">AUG</div>
-                        <div style="font-size: 0.875rem;">2026</div>
+            <div class="event-card featured-event-card">
+                <div class="featured-event-content">
+                    <div class="event-date-badge">
+                        <span class="event-date-text">August 15, 2026</span>
                     </div>
-                    <div style="flex: 1;">
-                        <h3 style="color: var(--burgundy); margin-bottom: 0.5rem; font-size: 1.75rem;">Hermits 1963 Annual Charity Golf Tournament</h3>
-                        <p style="color: var(--gray-dark); margin-bottom: 1rem; line-height: 1.6;">
-                            Join fellow Hermits for our annual golf tournament supporting student bursaries. 
-                            A day of friendly competition, networking, and giving back to the Canada Hall community.
+                    <div class="event-details">
+                        <h3>Hermits 1963 Annual Charity Golf Tournament</h3>
+                        <p>
+                            Join fellow Hermits for our flagship golf tournament supporting student bursaries—a full day of friendly competition, networking, and giving back to the Canada Hall community.
                         </p>
-                        <a href="#" class="btn btn-primary">Register Now</a>
+                        <div class="event-actions">
+                            <a href="events.html" class="btn btn-secondary">All Events</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,7 +129,7 @@
                     Canada Hall residents achieve their academic dreams.
                 </p>
                 <div class="cta-actions">
-                    <a href="#" class="btn btn-secondary btn-large">Make a Donation</a>
+                    <a href="donate.html" class="btn btn-secondary btn-large">Donate Online</a>
                     <a href="scholarships.html" class="btn-text">Learn about our impact →</a>
                 </div>
             </div>
@@ -98,60 +137,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#gallery">Photo Gallery</a></li>
-                        <li><a href="#donate">Donate</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Get Involved</h4>
-                    <ul>
-                        <li><a href="#events">Upcoming Events</a></li>
-                        <li><a href="#donate">Support Students</a></li>
-                        <li><a href="#volunteer">Volunteer</a></li>
-                        <li><a href="#membership">Membership</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="https://instagram.com/canadahallhermits">Instagram</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="mailto:info@hermits1963.org">Email Us</a></li>
-                        <li><a href="#">Send Message</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Canada Hall Hermits | United in Brotherhood Since 1963</p>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <span>|</span>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
+    <script src="../js/components.js"></script>
 </body>
 </html>
