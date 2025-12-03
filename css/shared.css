@@ -1,10 +1,12 @@
 /* Shared CSS Variables and Utilities */
 :root {
-  /* Color Palette - Based on UWI/Canada Hall traditional colors */
-  --burgundy: #800020;
-  --gold: #FFD700;
-  --navy: #001f3f;
-  --cream: #F5F5DC;
+  /* Color Palette - Brand Colors */
+  --primary-blue: #005EB8;    /* PANTONE 300C */
+  --primary-gold: #F2A900;    /* PANTONE 144C */
+  --burgundy: #005EB8;        /* Alias for compatibility */
+  --gold: #F2A900;            /* Alias for compatibility */
+  --navy: #003d7a;            /* Darker blue variant */
+  --cream: #F9F6F0;           /* Softer cream */
   --white: #FFFFFF;
   --black: #000000;
   --gray-light: #F4F4F4;
@@ -82,33 +84,36 @@ a {
   display: inline-block;
   padding: 0.75rem 2rem;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
-  transition: all var(--transition-base);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
-  background: var(--burgundy);
+  background: linear-gradient(135deg, var(--burgundy), var(--navy));
   color: var(--white);
 }
 
 .btn-primary:hover {
-  background: #660019;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, var(--navy), var(--burgundy));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 94, 184, 0.3);
 }
 
 .btn-secondary {
-  background: var(--gold);
-  color: var(--black);
+  background: linear-gradient(135deg, var(--gold), #ffb700);
+  color: #1a1a1a;
+  font-weight: 700;
 }
 
 .btn-secondary:hover {
-  background: #e6c200;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, #ffb700, var(--gold));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(242, 169, 0, 0.4);
 }
 
 .section {

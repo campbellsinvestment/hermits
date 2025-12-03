@@ -1,7 +1,8 @@
 /* Heritage Classic Theme - Concept 1 */
 .heritage-theme {
   font-family: 'Crimson Text', var(--font-serif);
-  background: var(--cream);
+  background: #fafaf8;
+  color: #2d2d2d;
 }
 
 /* Header */
@@ -40,10 +41,15 @@
 }
 
 .header-main {
-  background: var(--white);
-  border-bottom: 3px solid var(--gold);
-  padding: 1rem 0;
-  box-shadow: var(--shadow-md);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(242, 169, 0, 0.2);
+  padding: 1.5rem 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
 }
 
 .navigation {
@@ -94,45 +100,69 @@
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
 }
 
 .nav-menu a {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: var(--gray-dark);
-  padding: 0.5rem 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #4a4a4a;
+  padding: 0.75rem 0;
   border-bottom: 2px solid transparent;
-  transition: all var(--transition-base);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  width: 100%;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
   color: var(--burgundy);
-  border-bottom-color: var(--gold);
 }
 
 .nav-menu .nav-cta {
-  background: var(--gold);
+  background: linear-gradient(135deg, var(--gold) 0%, #ffc107 100%);
   color: var(--black);
-  padding: 0.5rem 1.5rem;
-  border-radius: var(--radius-md);
+  padding: 0.625rem 1.75rem;
+  border-radius: 50px;
   border: none;
+  box-shadow: 0 4px 12px rgba(242, 169, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-menu .nav-cta::after {
+  display: none;
 }
 
 .nav-menu .nav-cta:hover {
-  background: var(--burgundy);
-  color: var(--white);
+  background: linear-gradient(135deg, #ffc107 0%, var(--gold) 100%);
+  color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(242, 169, 0, 0.5);
 }
 
 /* Hero Section */
 .hero {
   position: relative;
-  height: 600px;
-  background: linear-gradient(135deg, var(--burgundy) 0%, var(--navy) 100%);
+  min-height: 70vh;
+  background: linear-gradient(135deg, #004d8a 0%, var(--burgundy) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,13 +179,8 @@
   right: 0;
   bottom: 0;
   background: 
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      rgba(255, 215, 0, 0.03) 10px,
-      rgba(255, 215, 0, 0.03) 20px
-    );
+    radial-gradient(circle at 20% 50%, rgba(242, 169, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 94, 184, 0.15) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -165,7 +190,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .hero-content {
@@ -175,22 +200,25 @@
 
 .hero-title {
   font-family: 'Playfair Display', var(--font-display);
-  font-size: 4rem;
-  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.5px;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-style: italic;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   color: var(--gold);
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 .hero-divider {
-  width: 100px;
-  height: 3px;
+  width: 80px;
+  height: 2px;
   background: var(--gold);
   margin: 1.5rem auto;
 }
@@ -404,17 +432,18 @@
 
 .feature-card {
   background: var(--white);
-  padding: 2rem;
-  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  border-radius: 16px;
   text-align: center;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-base);
-  border-top: 4px solid var(--gold);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 3px solid var(--gold);
 }
 
 .feature-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
   border-top-color: var(--burgundy);
 }
 
@@ -489,7 +518,7 @@
   gap: 2rem;
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 2px solid var(--gold);
+  border-top: 1px solid rgba(242, 169, 0, 0.3);
 }
 
 .stat {
@@ -527,16 +556,17 @@
 
 .product-card {
   background: var(--white);
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
 .product-image-placeholder {
@@ -609,19 +639,34 @@
 .btn-text {
   color: var(--gold);
   font-weight: 600;
-  transition: all var(--transition-base);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .btn-text:hover {
   color: var(--white);
-  text-decoration: underline;
+  transform: translateX(5px);
 }
 
 /* Footer */
 .footer {
-  background: var(--gray-dark);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: var(--white);
-  padding: var(--spacing-xl) 0 var(--spacing-md);
+  padding: 4rem 0 2rem;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
 .footer-grid {

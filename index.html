@@ -19,7 +19,7 @@
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -44,15 +44,15 @@
         
         .concepts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
         
         .concept-card {
             background: white;
             border: 1px solid #e0e0e0;
-            overflow: hidden;
+            padding: 2.5rem;
             transition: all 0.2s ease;
         }
         
@@ -61,49 +61,23 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         
-        .concept-header {
-            padding: 2rem 2rem 1.5rem;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .concept-header h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+        .concept-card h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
             color: #1a1a1a;
-            font-weight: 500;
-        }
-        
-        .concept-header .tagline {
-            font-size: 0.875rem;
-            color: #666;
             font-weight: 400;
         }
         
-        .concept-body {
-            padding: 2rem;
-        }
-        
-        .features {
-            list-style: none;
+        .concept-card .description {
+            font-size: 1rem;
+            color: #666;
             margin-bottom: 2rem;
-        }
-        
-        .features li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #f5f5f5;
-            font-size: 0.9375rem;
-            color: #4a4a4a;
-            line-height: 1.5;
-        }
-        
-        .features li:last-child {
-            border-bottom: none;
+            line-height: 1.6;
         }
         
         .btn {
-            display: block;
-            width: 100%;
-            padding: 0.875rem;
+            display: inline-block;
+            padding: 0.875rem 2rem;
             background: #1a1a1a;
             color: white;
             text-align: center;
@@ -118,59 +92,13 @@
             background: #333;
         }
         
-        .info-section {
-            background: white;
-            border: 1px solid #e0e0e0;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-        }
-        
-        .info-section h3 {
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-            font-weight: 500;
-        }
-        
-        .info-section p {
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-            font-size: 0.9375rem;
-        }
-        
-        .info-section code {
-            background: #f5f5f5;
-            padding: 0.25rem 0.5rem;
-            border-radius: 3px;
-            font-size: 0.875rem;
-            font-family: 'Courier New', monospace;
-        }
-        
-        .note-box {
-            margin-top: 1.5rem;
-            padding: 1.25rem;
-            background: #f8f8f8;
-            border-left: 3px solid #1a1a1a;
-            font-size: 0.9375rem;
-            line-height: 1.7;
-        }
-        
-        .note-box strong {
-            color: #1a1a1a;
-        }
-        
         footer {
             text-align: center;
             color: #666;
-            margin-top: 3rem;
+            margin-top: 4rem;
             padding-top: 2rem;
             border-top: 1px solid #e0e0e0;
             font-size: 0.875rem;
-        }
-        
-        footer p {
-            margin-bottom: 0.25rem;
         }
         
         @media (max-width: 768px) {
@@ -182,16 +110,13 @@
                 font-size: 2rem;
             }
             
-            .subtitle {
-                font-size: 0.9375rem;
-            }
-            
             .concepts-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
             
-            .info-section {
-                padding: 1.5rem;
+            .concept-card {
+                padding: 2rem;
             }
         }
     </style>
@@ -200,143 +125,27 @@
     <div class="container">
         <header>
             <h1>Canada Hall Hermits</h1>
-            <p class="subtitle">Design Concept Selection • 6 Unique Approaches</p>
         </header>
         
         <div class="concepts-grid">
-            <!-- Concept 1 -->
-            <div class="concept-card concept-1">
-                <div class="concept-header">
-                    <h2>Heritage Classic</h2>
-                    <p class="tagline">Traditional • Prestigious • Timeless</p>
-                </div>
-                <div class="concept-body">
-                    <ul class="features">
-                        <li>Burgundy and gold color palette</li>
-                        <li>Serif typography (Playfair Display, Crimson Text)</li>
-                        <li>Formal, academic presentation style</li>
-                        <li>Hurricane Melissa relief section featured</li>
-                        <li>Conservative and prestigious aesthetic</li>
-                    </ul>
-                    <a href="designs/concept1-heritage.html" class="btn">Preview Design</a>
-                </div>
+            <div class="concept-card">
+                <h2>Heritage Classic</h2>
+                <p class="description">
+                    A traditional, prestigious design with rich blue and vibrant gold. 
+                    Formal presentation honoring the legacy and fraternity of Canada Hall Hermits.
+                </p>
+                <a href="designs/concept1-heritage.html" class="btn">View Design</a>
             </div>
             
-            <!-- Concept 2 -->
-            <div class="concept-card concept-2">
-                <div class="concept-header">
-                    <h2>Modern Alumni Hub</h2>
-                    <p class="tagline">Contemporary • Engaging • User-Friendly</p>
-                </div>
-                <div class="concept-body">
-                    <ul class="features">
-                        <li>Blue and white fresh color palette</li>
-                        <li>Card-based modern layout system</li>
-                        <li>Mobile-first responsive design</li>
-                        <li>Hurricane relief urgent banner</li>
-                        <li>Clean and approachable interface</li>
-                    </ul>
-                    <a href="designs/concept2-modern.html" class="btn">Preview Design</a>
-                </div>
-            </div>
-            
-            <!-- Concept 3 -->
-            <div class="concept-card concept-3">
-                <div class="concept-header">
-                    <h2>Dynamic Storytelling</h2>
-                    <p class="tagline">Immersive • Media-Rich • Cinematic</p>
-                </div>
-                <div class="concept-body">
-                    <ul class="features">
-                        <li>Dark theme with gold accent highlights</li>
-                        <li>Video and photography focused layout</li>
-                        <li>Interactive timeline experience</li>
-                        <li>Dramatic relief section presentation</li>
-                        <li>Bold visual impact and depth</li>
-                    </ul>
-                    <a href="designs/concept3-storytelling.html" class="btn">Preview Design</a>
-                </div>
-            </div>
-            
-            <!-- Concept 4 -->
-            <div class="concept-card concept-4">
-                <div class="concept-header">
-                    <h2>Community Grid</h2>
-                    <p class="tagline">Modern • Bento Layout • Dynamic</p>
-                </div>
-                <div class="concept-body">
-                    <ul class="features">
-                        <li>Colorful grid-based bento layout</li>
-                        <li>Pinterest-style card arrangements</li>
-                        <li>Space Grotesk geometric typography</li>
-                        <li>Integrated hurricane relief banner</li>
-                        <li>Contemporary and fresh approach</li>
-                    </ul>
-                    <a href="designs/concept4-grid.html" class="btn">Preview Design</a>
-                </div>
-            </div>
-            
-            <!-- Concept 5 -->
-            <div class="concept-card concept-5">
-                <div class="concept-header">
-                    <h2>Bold & Dynamic</h2>
-                    <p class="tagline">High Energy • Impactful • Strong</p>
-                </div>
-                <div class="concept-body">
-                    <ul class="features">
-                        <li>Black and red high-contrast theme</li>
-                        <li>Bebas Neue display typography</li>
-                        <li>High energy design language</li>
-                        <li>Urgent relief effort prominence</li>
-                        <li>Bold and commanding presence</li>
-                    </ul>
-                    <a href="designs/concept5-bold.html" class="btn">Preview Design</a>
-                </div>
-            </div>
-            
-            <!-- Concept 6 -->
-            <div class="concept-card concept-6">
-                <div class="concept-header">
-                    <h2>Minimalist Swiss</h2>
-                    <p class="tagline">Clean • Elegant • Refined</p>
-                </div>
-                <div class="concept-body">
-                    <ul class="features">
-                        <li>Black and white monochrome palette</li>
-                        <li>Swiss design grid principles</li>
-                        <li>Ultra-clean Helvetica typography</li>
-                        <li>Minimalist relief information design</li>
-                        <li>Sophisticated and timeless elegance</li>
-                    </ul>
-                    <a href="designs/concept6-swiss.html" class="btn">Preview Design</a>
-                </div>
+            <div class="concept-card">
+                <h2>Dynamic Storytelling</h2>
+                <p class="description">
+                    An immersive, media-rich experience with dramatic dark theme, blue foundation, and vibrant gold accents. 
+                    Perfect for showcasing photos, videos, and community stories.
+                </p>
+                <a href="designs/concept3-storytelling.html" class="btn">View Design</a>
             </div>
         </div>
-        
-        <div class="info-section">
-            <h3>Next Steps</h3>
-            <p>
-                Review each design concept by clicking the preview buttons above. All designs include 
-                the complete feature set: About section, Hurricane Melissa Relief efforts, Events calendar, 
-                Merchandise shop, Donation portal, Photo gallery, and Contact information.
-            </p>
-            
-            <p>
-                Each design can be viewed on desktop and mobile devices. For detailed technical specifications 
-                and comparison, refer to <code>DESIGN_CONCEPTS.md</code> in the project documentation.
-            </p>
-            
-            <div class="note-box">
-                <strong>Hurricane Relief:</strong> All six design concepts prominently feature the Hurricane 
-                Melissa relief section for Jamaica, including donation calls-to-action, impact statistics, 
-                and community needs lists.
-            </div>
-        </div>
-        
-        <footer>
-            <p><strong>Canada Hall Hermits</strong> | United in Brotherhood Since 1963</p>
-            <p>Website Design Concepts | November 2025</p>
-        </footer>
     </div>
 </body>
 </html>
