@@ -12,6 +12,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Mobile: Reduce padding for Our Organization section */
+        @media (max-width: 768px) {
+            .our-organization-section {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+            }
+            .our-organization-section > div[style*="background: white"] {
+                padding: 2rem 1rem !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .our-organization-section {
+                padding-left: 0.25rem !important;
+                padding-right: 0.25rem !important;
+            }
+            .our-organization-section > div[style*="background: white"] {
+                padding: 1.5rem 0.75rem !important;
+            }
+        }
+    </style>
 </head>
 <body class="heritage-theme">
     
@@ -33,7 +54,7 @@
     <section class="about section" style="padding: 5rem 0;">
         <div class="container">
             <!-- Bio Section -->
-            <div style="max-width: 1100px; margin: 0 auto 5rem;">
+            <div class="our-organization-section" style="max-width: 1100px; margin: 0 auto 5rem;">
                 <div style="text-align: center; margin-bottom: 3.5rem;">
                     <h2 class="section-title" style="margin-bottom: 1rem;">Our Organization</h2>
                     <p style="font-size: 1.125rem; color: #666; max-width: 600px; margin: 0 auto;">Building futures through education and fellowship</p>
