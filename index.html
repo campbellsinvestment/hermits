@@ -3,147 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hermits 1963 Inc. - Design Concept Selection</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f5f5;
-            min-height: 100vh;
-            padding: 3rem 2rem;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-            font-weight: 300;
-            letter-spacing: -0.5px;
-        }
-        
-        .subtitle {
-            font-size: 1rem;
-            color: #666;
-            font-weight: 400;
-        }
-        
-        .concepts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .concept-card {
-            background: white;
-            border: 1px solid #e0e0e0;
-            padding: 2.5rem;
-            transition: all 0.2s ease;
-        }
-        
-        .concept-card:hover {
-            border-color: #333;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-        
-        .concept-card h2 {
-            font-size: 1.75rem;
-            margin-bottom: 0.75rem;
-            color: #1a1a1a;
-            font-weight: 400;
-        }
-        
-        .concept-card .description {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.875rem 2rem;
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 400;
-            font-size: 0.9375rem;
-            transition: all 0.2s ease;
-            letter-spacing: 0.3px;
-        }
-        
-        .btn:hover {
-            background: #333;
-        }
-        
-        footer {
-            text-align: center;
-            color: #666;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #e0e0e0;
-            font-size: 0.875rem;
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding: 2rem 1rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .concepts-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .concept-card {
-                padding: 2rem;
-            }
-        }
-    </style>
+    <title>Hermits 1963 Inc. - Heritage Classic Design</title>
+    <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/concept1-heritage.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Hermits 1963 Inc.</h1>
-        </header>
-        
-        <div class="concepts-grid">
-            <div class="concept-card">
-                <h2>Heritage Classic</h2>
-                <p class="description">
-                    A traditional, prestigious design with rich blue and vibrant gold.
-                </p>
-                <a href="designs/concept1-heritage.html" class="btn">View Design</a>
-            </div>
-            
-            <div class="concept-card">
-                <h2>Dynamic Storytelling</h2>
-                <p class="description">
-                    A modern design with blue and gold accents. Showcases photos and community stories.
-                </p>
-                <a href="designs/concept3-storytelling.html" class="btn">View Design</a>
+<body class="heritage-theme">
+    
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <h2 class="hero-title">Hermits 1963 Inc.</h2>
+                    <p class="hero-subtitle">Onward. Upward. Together.</p>
+                    <div class="hero-divider"></div>
+                    <div class="hero-actions">
+                        <a href="#about" class="btn btn-primary">About Hermits1963 Inc.</a>
+                        <a href="designs/donate.html" class="btn btn-secondary">Make a Donation</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- About / Mission Overview -->
+    <section id="about" class="mission section">
+        <div class="container">
+            <div class="mission-content">
+                <h2 class="section-title">Our Purpose</h2>
+                <div class="decorative-line"></div>
+                <p class="mission-quote">
+                    "To advance education by providing scholarships, bursaries, and other support to
+                    Canada Hall residents at UWI St. Augustine."
+                </p>
+                <p style="max-width: 720px; margin: 1.75rem auto 0; font-size: 1.05rem;">
+                    Hermits1963 Inc. brings together generations of Canada Hall alumni to invest in current
+                    students through financial aid, networking, and community-building.
+                </p>
+                <div style="margin-top: 2.5rem;">
+                    <a href="designs/about.html" class="btn btn-primary">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Areas / Features -->
+    <section class="features section">
+        <div class="container">
+            <h2 class="section-title">How We Make an Impact</h2>
+            <p class="section-subtitle">Scholarships, events, and alumni engagement all working together</p>
+
+            <div class="grid grid-3" style="margin-top: 2rem;">
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Scholarships & Bursaries</h3>
+                    <p>
+                        Financial support for deserving Canada Hall residents so they can complete their studies
+                        and focus on academic excellence.
+                    </p>
+                    <a href="designs/scholarships.html" class="feature-link">Explore the program →</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Flagship Golf Tournament</h3>
+                    <p>
+                        Our annual charity golf tournament is a cornerstone fundraising event that fuels the
+                        Student Bursary Program each year.
+                    </p>
+                    <a href="designs/events.html" class="feature-link">View event details →</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Alumni Community</h3>
+                    <p>
+                        A global network of Hermits staying connected, mentoring current students, and giving back
+                        to the hall that shaped them.
+                    </p>
+                    <a href="designs/gallery.html" class="feature-link">See our moments →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Event Preview -->
+    <section id="events" class="events section">
+        <div class="container">
+            <h2 class="section-title">Upcoming Highlight</h2>
+            <p class="section-subtitle">Join us for fellowship, networking, and giving back</p>
+            
+            <div class="event-card featured-event-card">
+                <div class="featured-event-content">
+                    <div class="event-date-badge">
+                        <span class="event-date-text">August 15, 2026</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Hermits 1963 Annual Charity Golf Tournament</h3>
+                        <p>
+                            Join fellow Hermits for our flagship golf tournament supporting student bursaries—a full day of friendly competition, networking, and giving back to the Canada Hall community.
+                        </p>
+                        <div class="event-actions">
+                            <a href="designs/events.html" class="btn btn-secondary">All Events</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation CTA -->
+    <section id="donate" class="donation-cta section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Support the Next Generation</h2>
+                <p>
+                    Your contribution to our Student Bursary Program helps deserving 
+                    Canada Hall residents achieve their academic dreams.
+                </p>
+                <div class="cta-actions">
+                    <a href="designs/donate.html" class="btn btn-secondary btn-large">Donate Online</a>
+                    <a href="designs/scholarships.html" class="btn-text">Learn about our impact →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
 </body>
 </html>

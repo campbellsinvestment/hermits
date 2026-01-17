@@ -2,26 +2,18 @@
 async function loadComponent(elementId, componentPath) {
     try {
         const response = await fetch(componentPath);
-        const html = await response.text();
+        let html = await response.text();
         document.getElementById(elementId).innerHTML = html;
         
-        // Set active navigation item after header is loaded
-        if (elementId === 'header-placeholder') {
-            updateNavLinksForTheme();
-            setActiveNavItem();
+        // Fix footer links based on page location
+        if (elementId === 'footer-placeholder') {
+            fixFooterLinks();
         }
         
-        // Update footer links for storytelling theme
-        if (elementId === 'footer-placeholder') {
-            updateFooterLinksForTheme();
-            // Also update footer-bottom links
-            const footerBottomLinks = document.querySelectorAll('.footer-bottom a');
-            footerBottomLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === 'privacy-terms.html' && document.body.classList.contains('storytelling-theme')) {
-                    link.setAttribute('href', 'privacy-terms-storytelling.html');
-                }
-            });
+        // Fix header links based on page location
+        if (elementId === 'header-placeholder') {
+            fixHeaderLinks();
+            setActiveNavItem();
         }
         
         return Promise.resolve();
@@ -31,90 +23,63 @@ async function loadComponent(elementId, componentPath) {
     }
 }
 
-// Update navigation links based on theme
-function updateNavLinksForTheme() {
-    const isStorytelling = document.body.classList.contains('storytelling-theme');
+// Fix footer links to work from current page location
+function fixFooterLinks() {
+    const currentPath = window.location.pathname;
+    const isInDesignsFolder = currentPath.includes('/designs/') || currentPath.endsWith('/designs/');
+    const footerLinks = document.querySelectorAll('.footer a[href^="designs/"]');
     
-    if (isStorytelling) {
-        const navLinks = document.querySelectorAll('.nav-menu a');
-        const logoLink = document.querySelector('.logo-section a');
-        
-        // Update logo link
-        if (logoLink) {
-            logoLink.setAttribute('href', 'concept3-storytelling.html');
-        }
-        
-        // Update navigation links
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            const id = link.getAttribute('id');
-            
-            if (id === 'nav-home') {
-                link.setAttribute('href', 'concept3-storytelling.html');
-            } else if (id === 'nav-about') {
-                link.setAttribute('href', 'about-storytelling.html');
-            } else if (id === 'nav-scholarships') {
-                link.setAttribute('href', 'scholarships-storytelling.html');
-            } else if (id === 'nav-events') {
-                link.setAttribute('href', 'events-storytelling.html');
-            } else if (id === 'nav-gallery') {
-                link.setAttribute('href', 'gallery-storytelling.html');
-            } else if (link.classList.contains('nav-cta')) {
-                link.setAttribute('href', 'donate-storytelling.html');
-            }
-        });
-    }
-}
-
-// Update footer links based on theme
-function updateFooterLinksForTheme() {
-    const isStorytelling = document.body.classList.contains('storytelling-theme');
-    
-    if (isStorytelling) {
-        const footerLinks = document.querySelectorAll('.footer a');
-        
+    if (isInDesignsFolder) {
+        // Remove "designs/" prefix for pages in designs folder
         footerLinks.forEach(link => {
             const href = link.getAttribute('href');
-            
-            if (href === 'about.html') {
-                link.setAttribute('href', 'about-storytelling.html');
-            } else if (href === 'scholarships.html') {
-                link.setAttribute('href', 'scholarships-storytelling.html');
-            } else if (href === 'events.html') {
-                link.setAttribute('href', 'events-storytelling.html');
-            } else if (href === 'gallery.html') {
-                link.setAttribute('href', 'gallery-storytelling.html');
-            } else if (href === 'donate.html') {
-                link.setAttribute('href', 'donate-storytelling.html');
-            } else if (href === 'privacy-terms.html') {
-                link.setAttribute('href', 'privacy-terms-storytelling.html');
+            if (href.startsWith('designs/')) {
+                link.setAttribute('href', href.replace('designs/', ''));
             }
         });
     }
+    // If in root, keep "designs/" prefix (already correct)
+}
+
+// Fix header links to work from current page location
+function fixHeaderLinks() {
+    const currentPath = window.location.pathname;
+    const isInDesignsFolder = currentPath.includes('/designs/') || currentPath.endsWith('/designs/');
+    const headerLinks = document.querySelectorAll('.nav-menu a, .logo-section a');
+    
+    if (isInDesignsFolder) {
+        headerLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            // Fix home link
+            if (href === 'index.html') {
+                link.setAttribute('href', '../index.html');
+            }
+            // Fix other page links (remove designs/ prefix)
+            else if (href.startsWith('designs/')) {
+                link.setAttribute('href', href.replace('designs/', ''));
+            }
+        });
+    }
+    // If in root, links are already correct
 }
 
 // Set active navigation item based on current page
 function setActiveNavItem() {
-    const currentPage = window.location.pathname.split('/').pop() || 'concept1-heritage.html';
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-menu a');
     
     navLinks.forEach(link => {
         link.classList.remove('active');
         const href = link.getAttribute('href');
         
-        const isStorytelling = document.body.classList.contains('storytelling-theme');
-        
+        // Check if current page matches the link
         if (href === currentPage || 
-            (currentPage === 'concept1-heritage.html' && link.id === 'nav-home' && !isStorytelling) ||
-            (currentPage === 'concept3-storytelling.html' && link.id === 'nav-home' && isStorytelling) ||
-            (currentPage === 'about.html' && link.id === 'nav-about' && !isStorytelling) ||
-            (currentPage === 'about-storytelling.html' && link.id === 'nav-about' && isStorytelling) ||
-            (currentPage === 'scholarships.html' && link.id === 'nav-scholarships' && !isStorytelling) ||
-            (currentPage === 'scholarships-storytelling.html' && link.id === 'nav-scholarships' && isStorytelling) ||
-            (currentPage === 'events.html' && link.id === 'nav-events' && !isStorytelling) ||
-            (currentPage === 'events-storytelling.html' && link.id === 'nav-events' && isStorytelling) ||
-            (currentPage === 'gallery.html' && link.id === 'nav-gallery' && !isStorytelling) ||
-            (currentPage === 'gallery-storytelling.html' && link.id === 'nav-gallery' && isStorytelling)) {
+            (currentPage === 'index.html' && link.id === 'nav-home') ||
+            (currentPage === 'about.html' && link.id === 'nav-about') ||
+            (currentPage === 'scholarships.html' && link.id === 'nav-scholarships') ||
+            (currentPage === 'events.html' && link.id === 'nav-events') ||
+            (currentPage === 'gallery.html' && link.id === 'nav-gallery') ||
+            (currentPage === 'donate.html' && link.classList.contains('nav-cta'))) {
             link.classList.add('active');
         }
     });
@@ -154,11 +119,26 @@ function initMobileMenu() {
     }
 }
 
+// Determine component path based on current page location
+function getComponentPath(componentName) {
+    const currentPath = window.location.pathname;
+    // If we're in the root (index.html), use root-relative paths
+    // If we're in designs/ folder, use parent-relative paths
+    if (currentPath.includes('/designs/') || currentPath.endsWith('/designs/')) {
+        return `../components/${componentName}`;
+    } else {
+        return `components/${componentName}`;
+    }
+}
+
 // Load components when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    loadComponent('header-placeholder', '../components/header.html').then(() => {
+    const headerPath = getComponentPath('header.html');
+    const footerPath = getComponentPath('footer.html');
+    
+    loadComponent('header-placeholder', headerPath).then(() => {
         // Initialize mobile menu after header is loaded
         setTimeout(initMobileMenu, 100);
     });
-    loadComponent('footer-placeholder', '../components/footer.html');
+    loadComponent('footer-placeholder', footerPath);
 });
