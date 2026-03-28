@@ -5,12 +5,11 @@ async function loadComponent(elementId, componentPath) {
         let html = await response.text();
         document.getElementById(elementId).innerHTML = html;
         
-        // Fix footer links based on page location
+        // Fix component links based on page location
         if (elementId === 'footer-placeholder') {
             fixFooterLinks();
         }
-        
-        // Fix header links based on page location
+
         if (elementId === 'header-placeholder') {
             fixHeaderLinks();
             setActiveNavItem();
@@ -23,63 +22,92 @@ async function loadComponent(elementId, componentPath) {
     }
 }
 
-// Fix footer links to work from current page location
-function fixFooterLinks() {
-    const currentPath = window.location.pathname;
-    const isInDesignsFolder = currentPath.includes('/designs/') || currentPath.endsWith('/designs/');
-    const footerLinks = document.querySelectorAll('.footer a[href^="designs/"]');
-    
-    if (isInDesignsFolder) {
-        // Remove "designs/" prefix for pages in designs folder
-        footerLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href.startsWith('designs/')) {
-                link.setAttribute('href', href.replace('designs/', ''));
-            }
-        });
+const ROUTE_SLUGS = ['about', 'scholarships', 'events', 'gallery', 'donate', 'privacy-terms'];
+
+function getCurrentRoute() {
+    const path = window.location.pathname.replace(/\/+$/, '');
+    const parts = path.split('/').filter(Boolean);
+    const last = parts[parts.length - 1] || '';
+
+    if (ROUTE_SLUGS.includes(last)) {
+        return last;
     }
-    // If in root, keep "designs/" prefix (already correct)
+
+    if (last === 'index.html' && parts.length > 1) {
+        const parent = parts[parts.length - 2];
+        if (ROUTE_SLUGS.includes(parent)) {
+            return parent;
+        }
+    }
+
+    return 'home';
 }
 
-// Fix header links to work from current page location
-function fixHeaderLinks() {
+function isNestedRoute() {
     const currentPath = window.location.pathname;
-    const isInDesignsFolder = currentPath.includes('/designs/') || currentPath.endsWith('/designs/');
-    const headerLinks = document.querySelectorAll('.nav-menu a, .logo-section a');
-    
-    if (isInDesignsFolder) {
-        headerLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            // Fix home link
-            if (href === 'index.html') {
-                link.setAttribute('href', '../index.html');
+    return getCurrentRoute() !== 'home' || currentPath.includes('/designs/');
+}
+
+function isLocalRouteLink(href) {
+    return href &&
+        !href.startsWith('http') &&
+        !href.startsWith('mailto:') &&
+        !href.startsWith('tel:') &&
+        !href.startsWith('#') &&
+        !href.startsWith('javascript:') &&
+        !href.startsWith('/');
+}
+
+function fixLinks(selector) {
+    const nested = isNestedRoute();
+    const links = document.querySelectorAll(selector);
+
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!isLocalRouteLink(href)) {
+            return;
+        }
+
+        if (!nested) {
+            if (href.startsWith('../')) {
+                link.setAttribute('href', href.replace('../', ''));
             }
-            // Fix other page links (remove designs/ prefix)
-            else if (href.startsWith('designs/')) {
-                link.setAttribute('href', href.replace('designs/', ''));
-            }
-        });
-    }
-    // If in root, links are already correct
+            return;
+        }
+
+        if (href === './') {
+            link.setAttribute('href', '../');
+            return;
+        }
+
+        if (!href.startsWith('../')) {
+            link.setAttribute('href', `../${href}`);
+        }
+    });
+}
+
+function fixFooterLinks() {
+    fixLinks('.footer a');
+}
+
+function fixHeaderLinks() {
+    fixLinks('.nav-menu a, .logo-section a');
 }
 
 // Set active navigation item based on current page
 function setActiveNavItem() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const route = getCurrentRoute();
     const navLinks = document.querySelectorAll('.nav-menu a');
     
     navLinks.forEach(link => {
         link.classList.remove('active');
-        const href = link.getAttribute('href');
-        
-        // Check if current page matches the link
-        if (href === currentPage || 
-            (currentPage === 'index.html' && link.id === 'nav-home') ||
-            (currentPage === 'about.html' && link.id === 'nav-about') ||
-            (currentPage === 'scholarships.html' && link.id === 'nav-scholarships') ||
-            (currentPage === 'events.html' && link.id === 'nav-events') ||
-            (currentPage === 'gallery.html' && link.id === 'nav-gallery') ||
-            (currentPage === 'donate.html' && link.classList.contains('nav-cta'))) {
+
+        if ((route === 'home' && link.id === 'nav-home') ||
+            (route === 'about' && link.id === 'nav-about') ||
+            (route === 'scholarships' && link.id === 'nav-scholarships') ||
+            (route === 'events' && link.id === 'nav-events') ||
+            (route === 'gallery' && link.id === 'nav-gallery') ||
+            (route === 'donate' && link.classList.contains('nav-cta'))) {
             link.classList.add('active');
         }
     });
@@ -121,10 +149,7 @@ function initMobileMenu() {
 
 // Determine component path based on current page location
 function getComponentPath(componentName) {
-    const currentPath = window.location.pathname;
-    // If we're in the root (index.html), use root-relative paths
-    // If we're in designs/ folder, use parent-relative paths
-    if (currentPath.includes('/designs/') || currentPath.endsWith('/designs/')) {
+    if (isNestedRoute()) {
         return `../components/${componentName}`;
     } else {
         return `components/${componentName}`;
