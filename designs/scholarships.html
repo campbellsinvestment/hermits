@@ -16,6 +16,34 @@
     <link rel="stylesheet" href="../css/concept1-heritage.css">
     <style>
         /* Mobile: Reduce padding for Supporting Student Success section to match Eligibility & Application */
+        .scholarship-release-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            grid-template-areas:
+                "image head"
+                "image body";
+            column-gap: 2rem;
+            row-gap: 0.75rem;
+            align-items: start;
+        }
+
+        .scholarship-release-head {
+            grid-area: head;
+            margin: 0 0 0.5rem;
+        }
+
+        .scholarship-release-figure {
+            grid-area: image;
+            margin: 0;
+            position: sticky;
+            top: 1rem;
+            align-self: start;
+        }
+
+        .scholarship-release-body {
+            grid-area: body;
+        }
+
         @media (max-width: 768px) {
             .student-success-section {
                 padding-left: 0.5rem !important;
@@ -23,6 +51,29 @@
             }
             .student-success-card {
                 padding: 2rem 1.5rem !important;
+            }
+            .scholarship-release-layout {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "head"
+                    "image"
+                    "body";
+                row-gap: 1.25rem;
+            }
+            .scholarship-release-image {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            .scholarship-release-title {
+                font-size: 1.55rem !important;
+            }
+            .scholarship-release-head {
+                margin-bottom: 1.25rem;
+            }
+            .scholarship-release-figure {
+                position: static;
+                max-width: 280px;
+                margin: 0 auto;
             }
         }
         @media (max-width: 480px) {
@@ -32,6 +83,9 @@
             }
             .student-success-card {
                 padding: 1.5rem 1rem !important;
+            }
+            .scholarship-release-title {
+                font-size: 1.35rem !important;
             }
         }
     </style>
@@ -55,6 +109,40 @@
     <section class="section" style="background: #fafaf8; padding: 5rem 0;">
         <div class="container">
 
+            <!-- Latest Scholarship Release -->
+            <div style="max-width: 1100px; margin: 0 auto 5rem;">
+                <div style="background: white; border-radius: 16px; padding: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid var(--gold);">
+                    <div style="text-align: center; margin-bottom: 2.5rem;">
+                        <h2 class="section-title" style="display: inline-block; margin-bottom: 1rem;">Latest Release</h2>
+                        <p style="font-size: 1.125rem; color: #666; margin: 0;">2025–2026 Canada Hall Scholarship Recipient</p>
+                    </div>
+
+                    <div class="scholarship-release-layout">
+                        <div class="scholarship-release-head">
+                            <h3 class="scholarship-release-title" style="font-family: 'Playfair Display', serif; font-size: 1.85rem; color: var(--burgundy); margin: 0 0 0.5rem;">HERMITS1963 Inc. (Ontario) Announces 2025–2026 Canada Hall Scholarship Recipient</h3>
+                            <p style="margin: 0; color: #777;"><strong>Ontario, Canada</strong></p>
+                        </div>
+
+                        <figure class="scholarship-release-figure">
+                            <img class="scholarship-release-image" src="../assets/Lindsay.jpg" alt="Mr. Raeshaun Lindsay, 2025–2026 Canada Hall Scholarship Recipient" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.12); object-fit: cover;">
+                            <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.75rem; text-align: center;">Mr. Raeshaun Lindsay</figcaption>
+                        </figure>
+
+                        <article class="scholarship-release-body" style="color: #3b3b3b; line-height: 1.85; font-size: 1.0625rem;">
+                            <p style="margin: 0 0 1rem;">Hermits1963 Inc. (Ontario) is pleased to announce the recipient of its 2025–2026 Canada Hall Scholarship at the University of the West Indies (UWI), St. Augustine Campus, Trinidad and Tobago. The scholarship has been awarded to <strong>Mr. Raeshaun Lindsay</strong>, a third-year Bachelor of Science student in Mechanical Engineering.</p>
+
+                            <p style="margin: 0 0 1rem;">Mr. Lindsay, who is from Spanish Town, St. Catherine, Jamaica, was selected in recognition of his academic performance, commitment to personal development, and active engagement in student hall life. His achievements reflect the diversity, resilience, and values of the Canada Hall community.</p>
+
+                            <p style="margin: 0 0 1rem;">Hermits1963 Inc. is dedicated to providing sustainable financial support to students of Canada Hall to assist them in completing their studies at UWI. The organization also collaborates with its alumni partner, The Hermit Foundation (THF), to deliver ongoing support and enhancements to the Canada Hall residence.</p>
+
+                            <p style="margin: 0 0 1rem;">The Hermits1963 Inc. scholarship selection committee is comprised of Dwight Reid, Noel Street, Cargil Gordon, and Neil Gordon.</p>
+
+                            <p style="margin: 0;">Hermits1963 Inc. congratulates Mr. Lindsay on this achievement and wishes him continued success in his academic pursuits.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
             <!-- Scholarship Program Overview -->
             <div class="student-success-section" style="max-width: 1100px; margin: 0 auto 5rem;">
                 <div class="student-success-card" style="background: linear-gradient(135deg, var(--burgundy) 0%, var(--navy) 100%); border-radius: 16px; padding: 3rem; color: white; position: relative; overflow: hidden;">
@@ -66,7 +154,7 @@
                         
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2.5rem;">
                             <div style="padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px; backdrop-filter: blur(10px);">
-                                <div style="font-size: 3rem; font-weight: 700; color: var(--gold); margin-bottom: 0.5rem;">4</div>
+                                <div style="font-size: 3rem; font-weight: 700; color: var(--gold); margin-bottom: 0.5rem;">5</div>
                                 <p style="font-size: 1rem; opacity: 0.9;">Students Awarded</p>
                             </div>
                             <div style="padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px; backdrop-filter: blur(10px);">
