@@ -14,6 +14,74 @@
     
     <link rel="stylesheet" href="../css/shared.css">
     <link rel="stylesheet" href="../css/heritage.css">
+    <style>
+        .gallery-category-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            height: 460px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .gallery-category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-category-card img.lightbox-trigger {
+            cursor: zoom-in;
+        }
+
+        .gallery-category-card img.poster-zoom-out {
+            object-fit: contain;
+            background: #111;
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 1rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: min(1200px, 96vw);
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1.75rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class="heritage-theme">
     
@@ -35,75 +103,43 @@
         <div class="container">
             <!-- Photo Grid -->
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                <!-- Photo 1 -->
-                <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
-                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop&auto=format" alt="Group gathering" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+                <!-- Category 1 -->
+                <div class="gallery-category-card" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
+                    <img src="../assets/golf_tournament_2025.jpeg" alt="Golf Tournament 2025" class="poster-zoom-out lightbox-trigger">
                     <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1.5rem 1.5rem; color: white;">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Brotherhood Gathering</h3>
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Golf Tournament 2025</h3>
                     </div>
                 </div>
 
-                <!-- Photo 2 -->
-                <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
-                    <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=600&fit=crop&auto=format" alt="Golfing event" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+                <!-- Category 2 -->
+                <a href="./2024/" class="gallery-category-card" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';" aria-label="View Golf Tournament 2024 gallery">
+                    <img src="../assets/gallery/2024/014-2e47f9d72369442f801d23f193985e46.jpg" alt="Golf Tournament 2024">
                     <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1.5rem 1.5rem; color: white;">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Annual Golf Tournament</h3>
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Golf Tournament 2024</h3>
+                    </div>
+                </a>
+
+                <!-- Category 3 -->
+                <div class="gallery-category-card" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
+                    <img src="../assets/golf_tournament_2023.jpeg" alt="Golf Tournament 2023" class="poster-zoom-out lightbox-trigger">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1.5rem 1.5rem; color: white;">
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Golf Tournament 2023</h3>
                     </div>
                 </div>
 
-                <!-- Photo 3 -->
-                <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
-                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&h=600&fit=crop&auto=format" alt="Graduation ceremony" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+                <!-- Category 4 -->
+                <div class="gallery-category-card" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
+                    <img src="../assets/board_meeting_2025.jpeg" alt="First Board Meeting, 2025" class="lightbox-trigger">
                     <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1.5rem 1.5rem; color: white;">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Scholarship Celebration</h3>
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">First Board Meeting, 2025</h3>
                     </div>
                 </div>
 
-                <!-- Photo 4 -->
-                <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
-                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop&auto=format" alt="Networking event" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+                <!-- Category 5 -->
+                <div class="gallery-category-card" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
+                    <img src="../assets/ridgemont.jpeg" alt="Hermits1963 celebrating another successful golf tournament with a shot of 1792 Ridgemont Reserve Bourbon Whiskey" class="lightbox-trigger">
                     <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1.5rem 1.5rem; color: white;">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Networking & Fellowship</h3>
-                    </div>
-                </div>
-
-                <!-- Photo 5 -->
-                <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
-                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop&auto=format" alt="Community service" style="width: 100%; height: 300px; object-fit: cover; display: block;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1.5rem 1.5rem; color: white;">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Community Outreach</h3>
-                    </div>
-                </div>
-
-                <!-- Photo 6 -->
-                <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
-                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop&auto=format" alt="Formal dinner" style="width: 100%; height: 300px; object-fit: cover; display: block;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1.5rem 1.5rem; color: white;">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Annual Gala Dinner</h3>
-                    </div>
-                </div>
-
-                <!-- Photo 7 -->
-                <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&auto=format" alt="Team building" style="width: 100%; height: 300px; object-fit: cover; display: block;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1.5rem 1.5rem; color: white;">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Team Building</h3>
-                    </div>
-                </div>
-
-                <!-- Photo 8 -->
-                <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
-                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=600&fit=crop&auto=format" alt="Mentorship" style="width: 100%; height: 300px; object-fit: cover; display: block;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1.5rem 1.5rem; color: white;">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Mentorship Programs</h3>
-                    </div>
-                </div>
-
-                <!-- Photo 9 -->
-                <div style="position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)';">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop&auto=format" alt="Alumni reunion" style="width: 100%; height: 300px; object-fit: cover; display: block;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem 1.5rem 1.5rem; color: white;">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0;">Alumni Reunion</h3>
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.05rem; line-height: 1.4; margin: 0;">Hermits1963 celebrating another successful golf tournament with a shot of 1792 Ridgemont Reserve Bourbon Whiskey</h3>
                     </div>
                 </div>
             </div>
@@ -129,6 +165,48 @@
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close image viewer">×</button>
+        <img id="lightbox-image" src="" alt="Expanded gallery image">
+    </div>
+
     <script src="../js/components.js"></script>
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+        function openLightbox(src, altText) {
+            lightboxImage.src = src;
+            lightboxImage.alt = altText;
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImage.src = '';
+            document.body.style.overflow = '';
+        }
+
+        lightboxTriggers.forEach((img) => {
+            img.addEventListener('click', () => openLightbox(img.src, img.alt));
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 </html>

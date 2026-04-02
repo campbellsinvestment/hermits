@@ -27,16 +27,9 @@ const ROUTE_SLUGS = ['about', 'scholarships', 'events', 'gallery', 'donate', 'pr
 function getCurrentRoute() {
     const path = window.location.pathname.replace(/\/+$/, '');
     const parts = path.split('/').filter(Boolean);
-    const last = parts[parts.length - 1] || '';
-
-    if (ROUTE_SLUGS.includes(last)) {
-        return last;
-    }
-
-    if (last === 'index.html' && parts.length > 1) {
-        const parent = parts[parts.length - 2];
-        if (ROUTE_SLUGS.includes(parent)) {
-            return parent;
+    for (let i = parts.length - 1; i >= 0; i--) {
+        if (ROUTE_SLUGS.includes(parts[i])) {
+            return parts[i];
         }
     }
 
@@ -44,8 +37,18 @@ function getCurrentRoute() {
 }
 
 function isNestedRoute() {
-    const currentPath = window.location.pathname;
-    return getCurrentRoute() !== 'home' || currentPath.includes('/designs/');
+    const path = window.location.pathname.replace(/\/+$/, '');
+    const parts = path.split('/').filter(Boolean);
+
+    if (parts.length === 0) {
+        return false;
+    }
+
+    if (parts.length === 1 && parts[0] === 'index.html') {
+        return false;
+    }
+
+    return true;
 }
 
 function isLocalRouteLink(href) {
@@ -149,11 +152,16 @@ function initMobileMenu() {
 
 // Determine component path based on current page location
 function getComponentPath(componentName) {
-    if (isNestedRoute()) {
-        return `../components/${componentName}`;
-    } else {
-        return `components/${componentName}`;
+    const path = window.location.pathname.replace(/\/+$/, '');
+    const parts = path.split('/').filter(Boolean);
+
+    if (parts[parts.length - 1] === 'index.html') {
+        parts.pop();
     }
+
+    const depth = parts.length;
+    const prefix = depth > 0 ? '../'.repeat(depth) : '';
+    return `${prefix}components/${componentName}`;
 }
 
 // Load components when DOM is ready
