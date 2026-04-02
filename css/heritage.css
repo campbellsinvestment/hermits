@@ -500,13 +500,11 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  border-top: 3px solid var(--gold);
 }
 
 .feature-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  border-top-color: var(--burgundy);
 }
 
 .feature-icon {
