@@ -45,6 +45,11 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0.85rem 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem 0.75rem;
             text-align: center;
             font-weight: 700;
             line-height: 1.5;
@@ -54,7 +59,15 @@
             font-weight: 900;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-right: 0.5rem;
+            margin-right: 0.25rem;
+        }
+
+        .events-sticky-banner .banner-item {
+            white-space: nowrap;
+        }
+
+        .events-sticky-banner .banner-separator {
+            opacity: 0.65;
         }
 
         .events-sticky-banner a {
@@ -97,8 +110,28 @@
         }
 
         @media (max-width: 768px) {
+            .events-sticky-banner {
+                top: 0;
+            }
+
             .events-sticky-banner .banner-inner {
                 font-size: 0.9rem;
+                gap: 0.2rem 0.5rem;
+                padding: 0.7rem 0.85rem;
+            }
+
+            .events-sticky-banner .banner-title {
+                flex-basis: 100%;
+                margin-right: 0;
+            }
+
+            .events-sticky-banner .banner-separator {
+                display: none;
+            }
+
+            .events-sticky-banner .banner-item {
+                flex-basis: 100%;
+                white-space: normal;
             }
 
             .featured-tournament-layout {
@@ -139,9 +172,9 @@
     <div class="events-sticky-banner">
         <div class="banner-inner">
             <span class="banner-title">Save The Date: Charity Golf Tournament</span>
-            Email: <a href="mailto:hermits1963@gmail.com">hermits1963@gmail.com</a>
-            &nbsp;|&nbsp;
-            Phone: <a href="tel:+14166274894">(416) 627-4894</a>
+            <span class="banner-item">Email: <a href="mailto:hermits1963@gmail.com">hermits1963@gmail.com</a></span>
+            <span class="banner-separator" aria-hidden="true">|</span>
+            <span class="banner-item">Phone: <a href="tel:+14166274894">(416) 627-4894</a></span>
         </div>
     </div>
 
