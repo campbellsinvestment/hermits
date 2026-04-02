@@ -74,6 +74,62 @@
             line-height: 1;
             cursor: pointer;
         }
+
+        .lightbox-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .lightbox-nav svg {
+            width: 22px;
+            height: 22px;
+            stroke: #fff;
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            display: block;
+        }
+
+        .lightbox-prev {
+            left: 1rem;
+        }
+
+        .lightbox-next {
+            right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                width: 42px;
+                height: 42px;
+            }
+
+            .lightbox-nav svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .lightbox-prev {
+                left: 0.5rem;
+            }
+
+            .lightbox-next {
+                right: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body class="heritage-theme">
@@ -108,7 +164,13 @@
 
     <div id="lightbox" class="lightbox" aria-hidden="true">
         <button id="lightbox-close" class="lightbox-close" aria-label="Close image viewer">×</button>
+        <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Previous image">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6"></path></svg>
+        </button>
         <img id="lightbox-image" src="" alt="Expanded gallery image">
+        <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Next image">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6"></path></svg>
+        </button>
     </div>
 
     <script src="../../js/components.js"></script>
@@ -117,19 +179,44 @@
         const lightbox = document.getElementById('lightbox');
         const lightboxImage = document.getElementById('lightbox-image');
         const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const galleryImages = [];
+        let activeIndex = -1;
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-        function openLightbox(src, altText) {
-            lightboxImage.src = src;
-            lightboxImage.alt = altText;
+        function showLightboxImage(index) {
+            const count = galleryImages.length;
+            if (!count) return;
+            activeIndex = (index + count) % count;
+            const image = galleryImages[activeIndex];
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+        }
+
+        function openLightbox(index) {
+            showLightboxImage(index);
             lightbox.classList.add('active');
             lightbox.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+        }
+
+        function showNextImage() {
+            if (activeIndex === -1) return;
+            showLightboxImage(activeIndex + 1);
+        }
+
+        function showPrevImage() {
+            if (activeIndex === -1) return;
+            showLightboxImage(activeIndex - 1);
         }
 
         function closeLightbox() {
             lightbox.classList.remove('active');
             lightbox.setAttribute('aria-hidden', 'true');
             lightboxImage.src = '';
+            activeIndex = -1;
             document.body.style.overflow = '';
         }
 
@@ -144,7 +231,8 @@
                     img.src = image.src;
                     img.alt = `Golf Tournament 2024 photo ${index + 1}`;
                     img.loading = 'lazy';
-                    img.addEventListener('click', () => openLightbox(image.src, img.alt));
+                    galleryImages.push({ src: image.src, alt: img.alt });
+                    img.addEventListener('click', () => openLightbox(index));
 
                     card.appendChild(img);
                     galleryGrid.appendChild(card);
@@ -155,14 +243,37 @@
             });
 
         lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', showPrevImage);
+        lightboxNext.addEventListener('click', showNextImage);
         lightbox.addEventListener('click', (event) => {
             if (event.target === lightbox) {
                 closeLightbox();
             }
         });
+
+        lightbox.addEventListener('touchstart', (event) => {
+            touchStartX = event.changedTouches[0].clientX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (event) => {
+            touchEndX = event.changedTouches[0].clientX;
+            const deltaX = touchEndX - touchStartX;
+            if (Math.abs(deltaX) < 40) return;
+            if (deltaX < 0) {
+                showNextImage();
+            } else {
+                showPrevImage();
+            }
+        }, { passive: true });
+
         document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && lightbox.classList.contains('active')) {
+            if (!lightbox.classList.contains('active')) return;
+            if (event.key === 'Escape') {
                 closeLightbox();
+            } else if (event.key === 'ArrowRight') {
+                showNextImage();
+            } else if (event.key === 'ArrowLeft') {
+                showPrevImage();
             }
         });
     </script>
