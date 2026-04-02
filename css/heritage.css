@@ -207,6 +207,19 @@
   stroke: var(--burgundy);
 }
 
+.mobile-donate-btn {
+  display: none;
+  font-family: var(--font-sans);
+  background: linear-gradient(135deg, var(--gold) 0%, #ffc107 100%);
+  color: var(--black);
+  padding: 0.625rem 1.75rem;
+  border-radius: 50px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px rgba(242, 169, 0, 0.3);
+}
+
 /* Hero Section */
 .hero {
   position: relative;
@@ -966,15 +979,25 @@
     position: relative;
     z-index: 10001;
     margin: 0.75rem auto 0;
-    order: 2;
+    order: 3;
   }
   
   .logo-section {
     order: 1;
   }
+
+  .mobile-donate-btn {
+    display: inline-block;
+    order: 2;
+    margin: 0.25rem auto 0;
+  }
   
   .nav-menu {
-    order: 3;
+    order: 4;
+  }
+
+  .nav-menu .nav-cta {
+    display: none;
   }
   
   .header-main .container {

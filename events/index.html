@@ -14,23 +14,136 @@
     
     <link rel="stylesheet" href="../css/shared.css">
     <link rel="stylesheet" href="../css/heritage.css">
+    <style>
+        .save-the-date-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--gold), #ffc107);
+            color: #1a1a1a;
+            padding: 0.7rem 1.4rem;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            box-shadow: 0 10px 25px rgba(242, 169, 0, 0.3);
+        }
+
+        .events-sticky-banner {
+            position: sticky;
+            top: 0;
+            z-index: 9998;
+            background: linear-gradient(135deg, var(--gold), #ffc107);
+            color: #1a1a1a;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .events-sticky-banner .banner-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.85rem 1rem;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .events-sticky-banner .banner-title {
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+        }
+
+        .events-sticky-banner a {
+            color: #1a1a1a;
+            text-decoration: underline;
+            font-weight: 800;
+        }
+
+        .events-poster-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(242, 169, 0, 0.2);
+            position: sticky;
+            top: 110px;
+        }
+
+        .events-poster-card img {
+            width: 100%;
+            display: block;
+            max-height: 760px;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .featured-tournament-layout {
+            display: grid;
+            grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.2fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .registration-details {
+            background: rgba(0, 94, 184, 0.05);
+            border: 1px solid rgba(0, 94, 184, 0.12);
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .events-sticky-banner .banner-inner {
+                font-size: 0.9rem;
+            }
+
+            .featured-tournament-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .events-poster-card {
+                position: static;
+                top: auto;
+            }
+
+            .events-poster-card img {
+                max-height: none;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="heritage-theme">
     <!-- Header -->
     <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="page-hero" style="background: linear-gradient(135deg, var(--burgundy) 0%, var(--navy) 100%); padding: 6rem 0 4rem; text-align: center; color: white; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: rgba(242, 169, 0, 0.1); border-radius: 50%;"></div>
-        <div style="position: absolute; bottom: -150px; left: -150px; width: 500px; height: 500px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;"></div>
-        <div class="container" style="position: relative; z-index: 1;">
-            <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; color: white;">Events</h1>
-            <p class="hero-subtitle-text" style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; opacity: 0.95; color: var(--gold); line-height: 1.6;">
-                <span class="hero-line-1" style="display: block;">Join us for fellowship, networking,</span>
-                <span class="hero-line-2" style="display: block;">and giving back to our community</span>
-            </p>
+    <section class="hero" style="min-height: 360px; display: flex; align-items: center; justify-content: center;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container" style="text-align: center;">
+                <h2 class="hero-title" style="font-size: 3rem;">Events</h2>
+                <p class="hero-subtitle" style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                    Meetups, Networking and Brotherhood
+                </p>
+                <div class="hero-actions" style="margin-top: 1.5rem; justify-content: center;">
+                    <a href="../donate" class="btn btn-secondary">Make a Donation</a>
+                </div>
+            </div>
         </div>
     </section>
+
+    <div class="events-sticky-banner">
+        <div class="banner-inner">
+            <span class="banner-title">Save The Date: Charity Golf Tournament</span>
+            Email: <a href="mailto:hermits1963@gmail.com">hermits1963@gmail.com</a>
+            &nbsp;|&nbsp;
+            Phone: <a href="tel:+14166274894">(416) 627-4894</a>
+        </div>
+    </div>
 
     <!-- Events Section -->
     <section class="section" style="background: #fafaf8; padding: 5rem 0;">
@@ -44,11 +157,16 @@
                         <p style="font-size: 1.125rem; color: #666;">Mark your calendar and join us</p>
                     </div>
 
-                    <!-- Golf Tournament -->
-                    <div class="golf-tournament-card" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 4px solid var(--gold);">
-                        <div class="golf-tournament-grid" style="display: block;">
-                            <!-- Event Details -->
-                            <div style="padding: 3rem;">
+                    <div class="featured-tournament-layout">
+                        <div class="events-poster-card">
+                            <img src="../assets/golf_tournament_2026.jpeg" alt="Hermits 1963 Inc. Golf Tournament 2026 Save The Date poster">
+                        </div>
+
+                        <!-- Golf Tournament -->
+                        <div class="golf-tournament-card" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                            <div class="golf-tournament-grid" style="display: block;">
+                                <!-- Event Details -->
+                                <div style="padding: 3rem;">
                                 <div style="display: inline-block; background: rgba(0, 94, 184, 0.1); color: var(--burgundy); padding: 0.5rem 1.25rem; border-radius: 20px; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 1.5rem;">ANNUAL FUNDRAISER</div>
                                 
                                 <h3 style="font-family: 'Playfair Display', serif; font-size: 2.25rem; color: var(--burgundy); margin-bottom: 1.25rem; font-weight: 700;">Hermits 1963 Annual Charity Golf Tournament</h3>
@@ -58,6 +176,22 @@
                                     A full day of friendly competition, networking, and giving back to the Canada Hall community. 
                                     All proceeds directly support scholarships for current Canada Hall residents at UWI St. Augustine.
                                 </p>
+
+                                <div class="registration-details">
+                                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--burgundy); margin-bottom: 0.75rem;">Registration Details</h4>
+                                    <p style="margin-bottom: 0.75rem; color: #4a4a4a; line-height: 1.7;">
+                                        Registration is now open for players, supporters, and sponsors. To register your team, reserve a spot, or request sponsorship information, email us at
+                                        <a href="mailto:hermits1963@gmail.com" style="color: var(--burgundy); font-weight: 700; text-decoration: underline;">hermits1963@gmail.com</a>.
+                                    </p>
+                                    <p style="margin-bottom: 0.75rem; color: #4a4a4a; line-height: 1.7;">
+                                        You can also call us at
+                                        <a href="tel:+14166274894" style="color: var(--burgundy); font-weight: 700; text-decoration: underline;">(416) 627-4894</a>
+                                        for registration support.
+                                    </p>
+                                    <p style="color: #4a4a4a; line-height: 1.7; margin: 0;">
+                                        Please include your name, contact number, and whether you are registering as an individual golfer, team, sponsor, or supporter.
+                                    </p>
+                                </div>
                                 
                                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
                                     <div style="display: flex; align-items: start; gap: 1rem;">
@@ -82,7 +216,7 @@
                                         </div>
                                         <div>
                                             <div style="font-size: 0.875rem; color: #999; margin-bottom: 0.25rem;">Location</div>
-                                            <div style="font-weight: 600; color: var(--burgundy);">TBA</div>
+                                            <div style="font-weight: 600; color: var(--burgundy);">1137 #1 Side Road<br>Burlington, ON, L7P 0T1<br>Canada</div>
                                         </div>
                                     </div>
                                     
@@ -99,14 +233,6 @@
                                     </div>
                                 </div>
                                 
-                                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                                    <a href="mailto:hermits1963@gmail.com" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2.5rem;">
-                                        Register Now
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>

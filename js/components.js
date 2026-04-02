@@ -94,7 +94,7 @@ function fixFooterLinks() {
 }
 
 function fixHeaderLinks() {
-    fixLinks('.nav-menu a, .logo-section a');
+    fixLinks('.nav-menu a, .logo-section a, .mobile-donate-btn');
 }
 
 // Set active navigation item based on current page
