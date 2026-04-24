@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="../css/shared.css">
     <link rel="stylesheet" href="../css/heritage.css">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
         .save-the-date-banner {
             display: inline-flex;
             align-items: center;
@@ -67,13 +71,18 @@
         }
 
         .events-sticky-banner .banner-separator {
-            opacity: 0.65;
+            opacity: 0.5;
+            font-weight: 400;
         }
 
         .events-sticky-banner a {
-            color: #1a1a1a;
-            text-decoration: underline;
-            font-weight: 800;
+            transition: all 0.3s ease;
+        }
+
+        .events-sticky-banner a:hover {
+            background: rgba(255,255,255,0.4) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .events-poster-card {
@@ -171,13 +180,13 @@
 
     <div class="events-sticky-banner">
         <div class="banner-inner">
-            <span class="banner-title">Save The Date: Charity Golf Tournament</span>
-            <span class="banner-separator" aria-hidden="true">|</span>
+            <span class="banner-title">Annual Charity Golf Tournament</span>
+            <span class="banner-separator" aria-hidden="true">•</span>
             <span class="banner-item">August 15, 2026</span>
-            <span class="banner-separator" aria-hidden="true">|</span>
-            <span class="banner-item">Email: <a href="mailto:hermits1963@gmail.com">hermits1963@gmail.com</a></span>
-            <span class="banner-separator" aria-hidden="true">|</span>
-            <span class="banner-item">Phone: <a href="tel:+14166274894">(416) 627-4894</a></span>
+            <span class="banner-separator" aria-hidden="true">•</span>
+            <span class="banner-item">Burlington, Ontario</span>
+            <span class="banner-separator" aria-hidden="true">•</span>
+            <a href="#register-section" style="background: rgba(255,255,255,0.25); color: #1a1a1a; padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 800; text-decoration: none; transition: all 0.3s ease; display: inline-block;">Register Now</a>
         </div>
     </div>
 
@@ -213,7 +222,7 @@
                                     All proceeds directly support scholarships for current Canada Hall residents at UWI St. Augustine.
                                 </p>
 
-                                <div class="registration-details">
+                                <div class="registration-details" id="register-section">
                                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--burgundy); margin-bottom: 1rem;">Registration Options</h4>
                                     
                                     <!-- Online Registration -->
