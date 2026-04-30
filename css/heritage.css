@@ -812,7 +812,7 @@
 
 /* Footer */
 .footer {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: #021129;
   color: var(--white);
   padding: 4rem 0 2rem;
   position: relative;
@@ -879,6 +879,13 @@
 .footer-links a:hover {
   color: var(--gold);
 }
+
+.footer-logo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
 
 /* Responsive Design */
 @media (max-width: 992px) {
@@ -1377,6 +1384,15 @@
   
   .footer-section li {
     text-align: center;
+  }
+  
+  .footer-logo {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer-logo img {
+    margin: 0 auto;
   }
   
   .footer-bottom {
