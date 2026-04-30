@@ -91,10 +91,35 @@ function fixLinks(selector) {
 
 function fixFooterLinks() {
     fixLinks('.footer a');
+    fixImages('.footer img');
 }
 
 function fixHeaderLinks() {
     fixLinks('.nav-menu a, .logo-section a, .mobile-donate-btn');
+    fixImages('.header img');
+}
+
+function fixImages(selector) {
+    const nested = isNestedRoute();
+    const images = document.querySelectorAll(selector);
+
+    images.forEach(img => {
+        const src = img.getAttribute('src');
+        if (!src || src.startsWith('http') || src.startsWith('/')) {
+            return;
+        }
+
+        if (!nested) {
+            if (src.startsWith('../')) {
+                img.setAttribute('src', src.replace('../', ''));
+            }
+            return;
+        }
+
+        if (!src.startsWith('../')) {
+            img.setAttribute('src', `../${src}`);
+        }
+    });
 }
 
 // Set active navigation item based on current page
