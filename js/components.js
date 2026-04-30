@@ -100,7 +100,14 @@ function fixHeaderLinks() {
 }
 
 function fixImages(selector) {
-    const nested = isNestedRoute();
+    const path = window.location.pathname.replace(/\/+$/, '');
+    const parts = path.split('/').filter(Boolean);
+    
+    if (parts[parts.length - 1] === 'index.html') {
+        parts.pop();
+    }
+    
+    const depth = parts.length;
     const images = document.querySelectorAll(selector);
 
     images.forEach(img => {
@@ -109,15 +116,21 @@ function fixImages(selector) {
             return;
         }
 
-        if (!nested) {
-            if (src.startsWith('../')) {
-                img.setAttribute('src', src.replace('../', ''));
-            }
+        // If we're at root and src has ../, remove it
+        if (depth === 0 && src.startsWith('../')) {
+            img.setAttribute('src', src.replace('../', ''));
             return;
         }
 
-        if (!src.startsWith('../')) {
-            img.setAttribute('src', `../${src}`);
+        // If we're nested and src doesn't start with ../, add the appropriate prefix
+        if (depth > 0) {
+            // Count how many ../ are already in the path
+            const existingDepth = (src.match(/\.\.\//g) || []).length;
+            
+            if (existingDepth < depth) {
+                const prefix = '../'.repeat(depth - existingDepth);
+                img.setAttribute('src', prefix + src);
+            }
         }
     });
 }
