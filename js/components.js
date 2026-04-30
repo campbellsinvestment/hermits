@@ -62,7 +62,14 @@ function isLocalRouteLink(href) {
 }
 
 function fixLinks(selector) {
-    const nested = isNestedRoute();
+    const path = window.location.pathname.replace(/\/+$/, '');
+    const parts = path.split('/').filter(Boolean);
+    
+    if (parts[parts.length - 1] === 'index.html') {
+        parts.pop();
+    }
+    
+    const depth = parts.length;
     const links = document.querySelectorAll(selector);
 
     links.forEach(link => {
@@ -71,20 +78,28 @@ function fixLinks(selector) {
             return;
         }
 
-        if (!nested) {
-            if (href.startsWith('../')) {
-                link.setAttribute('href', href.replace('../', ''));
-            }
+        // If we're at root and href has ../, remove it
+        if (depth === 0 && href.startsWith('../')) {
+            link.setAttribute('href', href.replace('../', ''));
             return;
         }
 
+        // Handle home link
         if (href === './') {
-            link.setAttribute('href', '../');
+            const homePrefix = depth > 0 ? '../'.repeat(depth) : './';
+            link.setAttribute('href', homePrefix);
             return;
         }
 
-        if (!href.startsWith('../')) {
-            link.setAttribute('href', `../${href}`);
+        // If we're nested and href doesn't start with ../, add the appropriate prefix
+        if (depth > 0) {
+            // Count how many ../ are already in the path
+            const existingDepth = (href.match(/\.\.\//g) || []).length;
+            
+            if (existingDepth < depth) {
+                const prefix = '../'.repeat(depth - existingDepth);
+                link.setAttribute('href', prefix + href);
+            }
         }
     });
 }
