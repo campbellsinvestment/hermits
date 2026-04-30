@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf Tournament 2023 Gallery | Hermits 1963 Inc.</title>
+    <meta name="description" content="View all photos from the Canada Hall Golf Tournament 2023 gallery.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../../assets/Crest_2024.jpg">
+    <link rel="apple-touch-icon" href="../../assets/Crest_2024.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/shared.css">
+    <link rel="stylesheet" href="../../css/heritage.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-photo {
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f2f2f2;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .gallery-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            aspect-ratio: 3 / 4;
+            cursor: zoom-in;
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 1rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: min(1200px, 96vw);
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1.75rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .lightbox-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .lightbox-nav svg {
+            width: 22px;
+            height: 22px;
+            stroke: #fff;
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            display: block;
+        }
+
+        .lightbox-prev {
+            left: 1rem;
+        }
+
+        .lightbox-next {
+            right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                width: 42px;
+                height: 42px;
+            }
+
+            .lightbox-nav svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .lightbox-prev {
+                left: 0.5rem;
+            }
+
+            .lightbox-next {
+                right: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="heritage-theme">
+    <div id="header-placeholder"></div>
+
+    <section class="hero" style="min-height: 360px; display: flex; align-items: center; justify-content: center;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container" style="text-align: center;">
+                <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.25rem, 5vw, 3.5rem); margin-bottom: 1rem; color: white;">Golf Tournament 2023</h1>
+                <p style="font-size: 1.15rem; max-width: 760px; margin: 0 auto; opacity: 0.95; color: var(--gold);">Canada Hall Golf Tournament 2023</p>
+                <div class="hero-actions" style="margin-top: 1.5rem; justify-content: center;">
+                    <a href="../../donate" class="btn btn-secondary">Make a Donation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #fafaf8; padding: 3rem 0 5rem;">
+        <div class="container" style="max-width: 1200px;">
+            <div style="display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 2rem;">
+                <a href="../" class="btn" style="background: white; border: 1px solid #ddd; color: var(--burgundy);">← Back to Gallery Categories</a>
+            </div>
+
+            <div style="background: white; border-radius: 16px; box-shadow: 0 4px 18px rgba(0,0,0,0.08); border: 1px solid #eee; padding: 1rem;">
+                <div id="gallery-grid" class="gallery-grid"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close image viewer">×</button>
+        <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Previous image">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6"></path></svg>
+        </button>
+        <img id="lightbox-image" src="" alt="Expanded gallery image">
+        <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Next image">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6"></path></svg>
+        </button>
+    </div>
+
+    <script src="../../js/components.js"></script>
+    <script>
+        const galleryGrid = document.getElementById('gallery-grid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const galleryImages = [];
+        let activeIndex = -1;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function showLightboxImage(index) {
+            const count = galleryImages.length;
+            if (!count) return;
+            activeIndex = (index + count) % count;
+            const image = galleryImages[activeIndex];
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+        }
+
+        function openLightbox(index) {
+            showLightboxImage(index);
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showNextImage() {
+            if (activeIndex === -1) return;
+            showLightboxImage(activeIndex + 1);
+        }
+
+        function showPrevImage() {
+            if (activeIndex === -1) return;
+            showLightboxImage(activeIndex - 1);
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImage.src = '';
+            activeIndex = -1;
+            document.body.style.overflow = '';
+        }
+
+        fetch('./images.json')
+            .then((response) => response.json())
+            .then((images) => {
+                images.forEach((image, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'gallery-photo';
+
+                    const img = document.createElement('img');
+                    img.src = image.src;
+                    img.alt = `Golf Tournament 2023 photo ${index + 1}`;
+                    img.loading = 'lazy';
+                    galleryImages.push({ src: image.src, alt: img.alt });
+                    img.addEventListener('click', () => openLightbox(index));
+
+                    card.appendChild(img);
+                    galleryGrid.appendChild(card);
+                });
+            })
+            .catch(() => {
+                galleryGrid.innerHTML = '<p style="padding: 1rem; color: #555;">Gallery images are temporarily unavailable. Please try again shortly.</p>';
+            });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', showPrevImage);
+        lightboxNext.addEventListener('click', showNextImage);
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        lightbox.addEventListener('touchstart', (event) => {
+            touchStartX = event.changedTouches[0].clientX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (event) => {
+            touchEndX = event.changedTouches[0].clientX;
+            const deltaX = touchEndX - touchStartX;
+            if (Math.abs(deltaX) < 40) return;
+            if (deltaX < 0) {
+                showNextImage();
+            } else {
+                showPrevImage();
+            }
+        }, { passive: true });
+
+        document.addEventListener('keydown', (event) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (event.key === 'Escape') {
+                closeLightbox();
+            } else if (event.key === 'ArrowRight') {
+                showNextImage();
+            } else if (event.key === 'ArrowLeft') {
+                showPrevImage();
+            }
+        });
+    </script>
+</body>
+</html>
